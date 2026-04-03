@@ -97,12 +97,10 @@ const Navbar = () => {
 
       {isOpen && (
         <div className="md:hidden bg-white absolute top-full left-0 w-full shadow-lg border-t border-gray-100">
-          <div className="px-4 pt-2 pb-6 space-y-1">
-            <MobileNavItem title="Our Services" />
-            <MobileNavItem title="Our Partners" />
-            <MobileNavItem title="Our Customers" />
-            <MobileNavItem title="Who We Are" />
-            <MobileNavItem title="Ultimate Insights" />
+          <div className="px-4 pt-2 pb-6 space-y-1 max-h-[75vh] overflow-y-auto">
+            {NAV_ITEMS.map((item) => (
+              <MobileNavItem key={item.id} item={item} />
+            ))}
             <a href="#contact" className="block w-full text-center bg-primary text-white px-6 py-3 rounded-full font-medium mt-6">
               Work With Us
             </a>
@@ -113,11 +111,50 @@ const Navbar = () => {
   );
 };
 
-const MobileNavItem = ({ title }: { title: string }) => (
-  <a href="#" className="block px-3 py-3 text-lg font-medium text-gray-800 hover:text-primary hover:bg-gray-50 rounded-md border-b border-gray-50">
-    {title}
-  </a>
-);
+const MobileNavItem = ({ item }: { item: MegaMenuItem }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hasSubmenus = item.subMenus && item.subMenus.length > 0;
+
+  return (
+    <div className="border-b border-gray-50">
+      <div 
+        onClick={() => hasSubmenus && setIsExpanded(!isExpanded)}
+        className="w-full flex items-center justify-between px-3 py-3 text-lg font-medium text-gray-800 hover:text-primary hover:bg-gray-50 rounded-md cursor-pointer"
+      >
+        {item.link && !hasSubmenus ? (
+          <a href={item.link} className="w-full">{item.label}</a>
+        ) : (
+          <span className="w-full">{item.label}</span>
+        )}
+        {hasSubmenus && (
+          <ChevronDown className={`w-5 h-5 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+        )}
+      </div>
+      {hasSubmenus && isExpanded && (
+        <div className="bg-gray-50 px-4 py-4 space-y-6 rounded-b-md">
+          {item.subMenus!.map((subMenu, idx) => (
+            <div key={idx}>
+              <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-200 pb-2">{subMenu.title}</h4>
+              <div className="space-y-4">
+                {subMenu.items.map((subItem: any, i) => (
+                  <a key={i} href={subItem.link || "#"} className="flex flex-row items-start text-gray-800 hover:text-primary">
+                    <span className="mt-1 mr-3 flex-shrink-0 text-primary">
+                      {subItem.icon && <subItem.icon className="w-5 h-5" />}
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-base leading-tight">{subItem.label}</span>
+                      {subItem.description && <span className="text-sm text-gray-500 mt-1">{subItem.description}</span>}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Hero = () => {
   return (
