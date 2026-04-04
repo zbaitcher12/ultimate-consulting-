@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, ArrowRight, Search, Linkedin, Cpu, Globe, Eye, Shield, Rocket, Box, Palette, BookOpen, FileText, Newspaper } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, animate, useInView } from 'motion/react';
 import MegaMenu, { MegaMenuItem } from './components/ui/mega-menu';
 
 const NAV_ITEMS: MegaMenuItem[] = [
@@ -353,13 +353,43 @@ const Stats = () => {
   );
 };
 
-const StatItem = ({ number, title, description }: { number: string, title: string, description: string }) => (
-  <div className="text-center px-4 pt-8 md:pt-0">
-    <div className="text-5xl md:text-6xl font-bold text-primary mb-4">{number}</div>
-    <h3 className="text-xl font-semibold mb-3">{title}</h3>
-    <p className="text-gray-400">{description}</p>
-  </div>
-);
+const StatItem = ({ number, title, description }: { number: string, title: string, description: string }) => {
+  const nodeRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(nodeRef, { once: true });
+  
+  useEffect(() => {
+    if (inView && nodeRef.current) {
+      const match = number.match(/([\d.]+)(.*)/);
+      if (match) {
+        const [, numStr, suffix] = match;
+        const targetValue = parseFloat(numStr);
+        const isFloat = numStr.includes('.');
+        
+        const controls = animate(0, targetValue, {
+          duration: 2.5,
+          ease: "easeOut",
+          onUpdate(value) {
+            if (nodeRef.current) {
+              const displayValue = isFloat ? value.toFixed(1) : Math.round(value);
+              nodeRef.current.textContent = displayValue + suffix;
+            }
+          }
+        });
+        return () => controls.stop();
+      }
+    }
+  }, [number, inView]);
+
+  return (
+    <div className="text-center px-4 pt-8 md:pt-0">
+      <div ref={nodeRef} className="text-5xl md:text-6xl font-bold text-primary mb-4">
+        0{number.replace(/[\d.]+/, '')}
+      </div>
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-gray-400">{description}</p>
+    </div>
+  );
+};
 
 const CTA = () => {
   return (
