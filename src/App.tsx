@@ -115,8 +115,8 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <ServiceCard 
-            title="Functional Consultant"
-            description="We implement and optimize enterprise platforms, such as Workday, to align technology with business strategy and drive operational efficiency."
+            title="Enterprise System Strategy and Support"
+            description="We provide implementation support, optimization, advisory services, and operational guidance for the core systems that power your institution."
           />
           <ServiceCard 
             title="Technical Consultant"
