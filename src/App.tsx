@@ -57,7 +57,7 @@ const Partnerships = () => {
           />
           <PartnerCard 
             logo="https://avaap.com/wp-content/uploads/2025/10/workday.png"
-            description="Ultimate Consulting is a certified Workday partner with expertise across HCM, Financials, and Student implementations, as well as Workday Extend."
+            description="Ultimate Consulting supports colleges and universities with Workday initiatives across human capital management, finance, student operations, reporting, and organizational alignment. We help institutions improve adoption, streamline operations, and maximize the value of their technology investments."
             linkText="Explore Workday Services"
           />
           <PartnerCard 
