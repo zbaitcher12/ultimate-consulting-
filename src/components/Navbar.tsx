@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, ArrowRight, Search, Cpu, Rocket, Box } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Search, Cpu, Rocket, Box, GraduationCap } from 'lucide-react';
 import { motion } from 'motion/react';
 import MegaMenu, { MegaMenuItem } from './ui/mega-menu';
 
@@ -30,7 +30,18 @@ export const NAV_ITEMS: MegaMenuItem[] = [
       },
     ],
   },
-  { id: 3, label: "Our Customers", link: "#" },
+  {
+    id: 3,
+    label: "Our Customers",
+    subMenus: [
+      {
+        title: "Industries",
+        items: [
+          { label: "Higher Education", description: "Specialized solutions for institutions", icon: GraduationCap, link: "/higher-education" },
+        ],
+      },
+    ],
+  },
   { id: 4, label: "Who We Are", link: "#" },
   { id: 5, label: "Ultimate Insights", link: "#" },
 ];

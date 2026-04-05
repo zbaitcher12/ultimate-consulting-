@@ -11,6 +11,7 @@ export type MegaMenuItem = {
       label: string;
       description: string;
       icon: React.ElementType;
+      link?: string;
     }[];
   }[];
   link?: string;
@@ -89,7 +90,7 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                               return (
                                 <li key={item.label}>
                                   <a
-                                    href="#"
+                                    href={item.link || "#"}
                                     className="flex items-start space-x-3 group"
                                   >
                                     <div className="flex size-9 shrink-0 items-center justify-center rounded-md border border-white/30 text-white transition-colors duration-300 group-hover:bg-white group-hover:text-slate-900">
