@@ -25,7 +25,7 @@ export default function HigherEducationPage() {
             <span className="text-white/80 font-bold tracking-[0.2em] uppercase text-xs mb-6 block">
               Higher Education
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold text-white mb-2 tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2 tracking-tight leading-tight">
               Higher Education IT Consulting
             </h1>
             <h2 className="text-3xl md:text-4xl text-white mb-8 font-light italic">
