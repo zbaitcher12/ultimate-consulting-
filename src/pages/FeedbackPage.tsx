@@ -100,6 +100,7 @@ export default function FeedbackPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="text-center"
         >
           <span className="text-amber-400 text-xs font-semibold uppercase tracking-widest mb-4 block">
             Client Portal
@@ -108,7 +109,7 @@ export default function FeedbackPage() {
             Website Change{' '}
             <em className="not-italic text-amber-400 italic">Request</em>
           </h1>
-          <p className="text-white/70 text-lg max-w-xl">
+          <p className="text-white/70 text-lg max-w-xl mx-auto">
             Need something updated on your website? Submit your request below and we'll get on it. You'll be able to track the status of your request.
           </p>
         </motion.div>
