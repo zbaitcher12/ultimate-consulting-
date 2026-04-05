@@ -137,9 +137,9 @@ const Services = () => {
 const ServiceCard = ({ title, description }: { title: string, description: string }) => (
   <motion.div 
     whileHover={{ y: -10 }}
-    className="group relative rounded-2xl overflow-hidden shadow-lg h-80 md:h-96 flex flex-col justify-start bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+    className="group relative rounded-2xl overflow-hidden shadow-lg h-80 md:h-96 flex flex-col justify-start bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-primary to-secondary opacity-60 transition-opacity duration-500 group-hover:opacity-80"></div>
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 opacity-60 transition-opacity duration-500 group-hover:opacity-80"></div>
     <div className="relative z-10 p-8 flex flex-col h-full">
       <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
       <p className="text-gray-200 mb-6 leading-relaxed line-clamp-4">{description}</p>
