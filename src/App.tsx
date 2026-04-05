@@ -119,8 +119,8 @@ const Services = () => {
             description="We provide implementation support, optimization, advisory services, and operational guidance for the core systems that power your institution."
           />
           <ServiceCard 
-            title="Technical Consultant"
-            description="We help organizations unlock the power of their data with scalable cloud solutions and advanced analytics for smarter decision-making."
+            title="Process Improvement and Operational Efficiency"
+            description="We help colleges and universities streamline workflows, reduce manual effort, improve collaboration across departments, and better align systems with institutional goals."
           />
         </div>
       </div>
