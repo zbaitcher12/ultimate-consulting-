@@ -116,14 +116,15 @@ export default function FeedbackPage() {
 
           {/* Request Type */}
           <div>
-            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+            <label id="request-type-label" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
               What Type of Change? <span className="text-red-400">*</span>
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-              {REQUEST_TYPES.map(({ label, description, icon: Icon }) => (
+            <div role="group" aria-labelledby="request-type-label" className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              {REQUEST_TYPES.map(({ label, description: typeDescription, icon: Icon }) => (
                 <button
                   key={label}
                   type="button"
+                  aria-pressed={requestType === label}
                   onClick={() => setRequestType(label)}
                   className={`flex flex-col items-center text-center p-3 rounded-xl border-2 transition-all cursor-pointer ${
                     requestType === label
@@ -133,7 +134,7 @@ export default function FeedbackPage() {
                 >
                   <Icon className="w-5 h-5 mb-1.5" />
                   <span className="text-xs font-semibold leading-tight">{label}</span>
-                  <span className="text-[10px] text-gray-400 mt-1 leading-tight hidden sm:block">{description}</span>
+                  <span className="text-[10px] text-gray-400 mt-1 leading-tight hidden sm:block">{typeDescription}</span>
                 </button>
               ))}
             </div>
