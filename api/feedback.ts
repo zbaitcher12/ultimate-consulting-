@@ -1,5 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+const VALID_REQUEST_TYPES = ['Content Change', 'Design Tweak', 'Bug / Issue', 'New Feature', 'Other'];
+const VALID_PRIORITIES = ['Low', 'Medium', 'High'];
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -7,8 +10,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { businessName, requestType, priority, pageSection, description } = req.body ?? {};
 
-  if (!businessName || !requestType || !description) {
+  if (!String(businessName).trim() || !String(requestType).trim() || !String(description).trim()) {
     return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  if (!VALID_REQUEST_TYPES.includes(String(requestType))) {
+    return res.status(400).json({ error: 'Invalid request type' });
+  }
+  if (priority && !VALID_PRIORITIES.includes(String(priority))) {
+    return res.status(400).json({ error: 'Invalid priority' });
   }
 
   const apiKey = process.env.NOTION_API_KEY;
@@ -19,6 +29,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    const MAX_TEXT = 2000;
+
     const response = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
@@ -30,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         parent: { database_id: databaseId },
         properties: {
           'Business Name': {
-            title: [{ text: { content: String(businessName) } }],
+            title: [{ text: { content: String(businessName).trim().slice(0, MAX_TEXT) } }],
           },
           'Request Type': {
             select: { name: String(requestType) },
@@ -39,10 +51,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             select: { name: String(priority || 'Medium') },
           },
           'Page/Section': {
-            rich_text: [{ text: { content: String(pageSection || '') } }],
+            rich_text: [{ text: { content: String(pageSection || '').slice(0, MAX_TEXT) } }],
           },
           'Description': {
-            rich_text: [{ text: { content: String(description) } }],
+            rich_text: [{ text: { content: String(description).trim().slice(0, MAX_TEXT) } }],
           },
           'Status': {
             status: { name: 'New' },
