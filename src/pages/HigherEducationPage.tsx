@@ -289,24 +289,7 @@ export default function HigherEducationPage() {
             </div>
           </motion.div>
 
-          {/* stat strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-20 grid grid-cols-3 gap-8 max-w-2xl"
-          >
-            {[
-              { value: '200+', label: 'Successful Engagements' },
-              { value: '4', label: 'Core ERP Platforms' },
-              { value: '97.8%', label: 'Client Satisfaction' },
-            ].map((stat) => (
-              <div key={stat.label} className="border-l border-white/20 pl-5">
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-white/50 mt-1 leading-snug">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
+
         </div>
       </section>
 
