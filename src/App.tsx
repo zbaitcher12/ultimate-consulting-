@@ -159,7 +159,7 @@ const Stats = () => {
         <div className="grid md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-slate-700">
           <StatItem number="200+" title="Deep Institutional Experience" description="Our consultants understand the operational realities of higher education, including student services, enrollment, financial aid, finance, HR, payroll, and compliance." />
           <StatItem number="375+" title="Functional and Technical Strength" description="We combine strategic insight, functional expertise, and technical execution to help institutions solve complex challenges and move initiatives forward." />
-          <StatItem number="97.8%" title="Client Satisfaction" description="Proven success, trusted by those we serve." />
+          <StatItem number="97.8%" title="Sustainable Results" description="We focus on practical solutions that strengthen operations, improve the user experience, and create value beyond implementation." />
         </div>
       </div>
     </div>
