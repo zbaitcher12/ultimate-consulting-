@@ -157,7 +157,7 @@ const Stats = () => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-slate-700">
-          <StatItem number="200+" title="Customer Transformations" description="Our team has experience across industries and have helped our customers achieve their goals." />
+          <StatItem number="200+" title="Deep Institutional Experience" description="Our consultants understand the operational realities of higher education, including student services, enrollment, financial aid, finance, HR, payroll, and compliance." />
           <StatItem number="375+" title="Dedicated Professionals" description="Our team brings deep industry knowledge to every engagement." />
           <StatItem number="97.8%" title="Client Satisfaction" description="Proven success, trusted by those we serve." />
         </div>
