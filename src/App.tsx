@@ -22,7 +22,7 @@ const Hero = () => {
             <span className="text-amber-400 font-bold tracking-[0.2em] uppercase text-[10px] mb-6 block drop-shadow-sm">
               Modernize Higher Education with Confidence
             </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.2] mb-8 max-w-3xl">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] mb-8 max-w-3xl">
               Your technology should support student success, institutional effectiveness, and long term growth and not create more complexity.
             </h1>
             <p className="text-base text-white/80 mb-10 leading-relaxed max-w-2xl">
