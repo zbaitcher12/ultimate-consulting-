@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Monitor, Palette, Bug, Sparkles, MoreHorizontal, Send } from 'lucide-react';
+import { Monitor, Palette, Bug, Sparkles, MoreHorizontal, Send, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 type RequestType = 'Content Change' | 'Design Tweak' | 'Bug / Issue' | 'New Feature' | 'Other';
 type Priority = 'Low' | 'Medium' | 'High';
@@ -46,57 +48,80 @@ export default function FeedbackPage() {
 
   if (status === 'success') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-3xl shadow-2xl p-12 max-w-md w-full text-center"
-        >
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Request Submitted!</h2>
-          <p className="text-gray-500">Your request will be reviewed by our team and you'll see updates on its progress.</p>
-          <button
-            onClick={() => {
-              setStatus('idle');
-              setBusinessName('');
-              setRequestType(null);
-              setPriority('Medium');
-              setPageSection('');
-              setDescription('');
-            }}
-            className="mt-8 text-blue-600 font-medium hover:text-blue-800 transition-colors"
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <Navbar />
+        <div className="flex items-center justify-center px-4 min-h-screen">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-3xl shadow-2xl p-12 max-w-md w-full text-center"
           >
-            Submit another request
-          </button>
-        </motion.div>
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Request Submitted!</h2>
+            <p className="text-gray-500">Your request will be reviewed by our team and you'll see updates on its progress.</p>
+            <button
+              onClick={() => {
+                setStatus('idle');
+                setBusinessName('');
+                setRequestType(null);
+                setPriority('Medium');
+                setPageSection('');
+                setDescription('');
+              }}
+              className="mt-8 text-blue-600 font-medium hover:text-blue-800 transition-colors"
+            >
+              Submit another request
+            </button>
+          </motion.div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <Navbar />
+
+      {/* Hero Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+        <Link
+          to="/"
+          className="inline-flex items-center text-white/70 hover:text-white transition-colors text-sm mb-8"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to website
+        </Link>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="text-amber-400 text-xs font-semibold uppercase tracking-widest mb-4 block">
+            Client Portal
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Website Change{' '}
+            <em className="not-italic text-amber-400 italic">Request</em>
+          </h1>
+          <p className="text-white/70 text-lg max-w-xl">
+            Need something updated on your website? Submit your request below and we'll get on it. You'll be able to track the status of your request.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Form Card */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
         className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-full max-w-2xl"
       >
-        {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <img
-            src="https://4ucit.com/wp-content/uploads/2022/11/NAV-Logo-WHITE2-768x156.png"
-            alt="Ultimate Consulting"
-            className="h-8 invert brightness-0"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-
-        <h1 className="text-2xl font-bold text-gray-900 mb-2 text-center">Submit a Change Request</h1>
-        <p className="text-gray-500 text-center mb-8 text-sm">Tell us what you need and we'll take care of it.</p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Business Name */}
@@ -225,6 +250,7 @@ export default function FeedbackPage() {
           </p>
         </form>
       </motion.div>
+      </div>
     </div>
   );
 }
