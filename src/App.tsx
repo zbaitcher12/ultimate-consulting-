@@ -151,7 +151,7 @@ const Navbar = () => {
   );
 };
 
-const MobileNavItem = ({ item }: { item: MegaMenuItem }) => {
+const MobileNavItem: React.FC<{ item: MegaMenuItem }> = ({ item }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const hasSubmenus = item.subMenus && item.subMenus.length > 0;
 
