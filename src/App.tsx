@@ -209,10 +209,10 @@ const CTA = () => {
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Ready to Transform Your Organization?
+          Ready to Move Forward?
         </h2>
         <p className="text-xl text-gray-600 mb-10">
-          Let’s talk about your goals and how Ultimate Consulting can help.
+          Let’s talk about your institution’s goals and how Ultimate Consulting can help you modernize with confidence.
         </p>
         <a href="#contact" className="inline-flex items-center bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-colors text-lg shadow-lg hover:shadow-xl">
           Contact Us <ArrowRight className="ml-2 w-5 h-5" />
