@@ -52,7 +52,7 @@ const Partnerships = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <PartnerCard 
             logo="/ellucian.png"
-            description="Ultimate Consulting partners with Ellucian to deliver modern, cloud-ready higher education solutions that drive institutional success and student engagement."
+            description="We help institutions implement, optimize, and support Ellucian Banner and Colleague across student, financial aid, finance, HR, payroll, and related administrative functions. Whether your institution is addressing daily operational challenges, planning for modernization, or improving service delivery, our team brings the functional and technical experience to help you move forward."
             linkText="Explore Ellucian Services"
           />
           <PartnerCard 
