@@ -75,17 +75,22 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                     className="w-max p-4"
                     style={{
                       borderRadius: 16,
-                      background: 'rgba(13, 31, 60, 0.97)',
-                      border: '1px solid rgba(59, 130, 246, 0.25)',
-                      backdropFilter: 'blur(12px)',
-                      WebkitBackdropFilter: 'blur(12px)',
+                      background: 'rgba(255, 255, 255, 0.97)',
+                      border: '1px solid rgba(28, 130, 226, 0.2)',
+                      borderTop: '2px solid #1C82E2',
+                      backdropFilter: 'blur(16px)',
+                      WebkitBackdropFilter: 'blur(16px)',
+                      boxShadow: '0 20px 60px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(28, 130, 226, 0.1)',
                     }}
                     layoutId="menu"
                   >
                     <div className="flex w-fit shrink-0 space-x-9 overflow-hidden">
                       {navItem.subMenus.map((sub) => (
                         <motion.div layout className="w-full" key={sub.title}>
-                          <h3 className="mb-4 text-base font-semibold capitalize text-white/50">
+                          <h3
+                            className="mb-4 text-xs font-bold uppercase tracking-widest"
+                            style={{ color: '#1C82E2' }}
+                          >
                             {sub.title}
                           </h3>
                           <ul className="space-y-6">
@@ -97,14 +102,21 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                                     href={item.link || "#"}
                                     className="flex items-start space-x-3 group"
                                   >
-                                    <div className="flex size-9 shrink-0 items-center justify-center rounded-md text-white transition-colors duration-300 group-hover:text-white" style={{ border: '1px solid rgba(96, 165, 250, 0.4)' }}>
+                                    <div
+                                      className="flex size-9 shrink-0 items-center justify-center rounded-md transition-colors duration-300"
+                                      style={{
+                                        border: '1px solid rgba(28, 130, 226, 0.25)',
+                                        color: '#1C82E2',
+                                        background: 'rgba(28, 130, 226, 0.06)',
+                                      }}
+                                    >
                                       <Icon className="h-5 w-5 flex-none" />
                                     </div>
                                     <div className="w-max leading-5">
-                                      <p className="shrink-0 text-base font-medium text-white">
+                                      <p className="shrink-0 text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
                                         {item.label}
                                       </p>
-                                      <p className="shrink-0 text-sm text-white/50 transition-colors duration-300 group-hover:text-white">
+                                      <p className="shrink-0 text-sm text-gray-500 group-hover:text-gray-700 transition-colors duration-200">
                                         {item.description}
                                       </p>
                                     </div>
