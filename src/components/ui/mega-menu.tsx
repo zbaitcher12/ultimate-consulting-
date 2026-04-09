@@ -44,29 +44,49 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
             onMouseEnter={() => handleHover(navItem.label)}
             onMouseLeave={() => handleHover(null)}
           >
-            <button
-              className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-base font-medium text-white/50 transition-colors duration-300 hover:text-white group"
-              onMouseEnter={() => setIsHover(navItem.id)}
-              onMouseLeave={() => setIsHover(null)}
-            >
-              <span>{navItem.label}</span>
-              {navItem.subMenus && (
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 group-hover:rotate-180 ${
-                    openMenu === navItem.label ? "rotate-180" : ""
-                  }`}
-                />
-              )}
-              {(isHover === navItem.id || openMenu === navItem.label) && (
-                <motion.div
-                  layoutId="hover-bg"
-                  className="absolute inset-0 size-full bg-white/10"
-                  style={{
-                    borderRadius: 99,
-                  }}
-                />
-              )}
-            </button>
+            {navItem.link && !navItem.subMenus ? (
+              <a
+                href={navItem.link}
+                className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-base font-medium text-white/50 transition-colors duration-300 hover:text-white group"
+                onMouseEnter={() => setIsHover(navItem.id)}
+                onMouseLeave={() => setIsHover(null)}
+              >
+                <span>{navItem.label}</span>
+                {(isHover === navItem.id || openMenu === navItem.label) && (
+                  <motion.div
+                    layoutId="hover-bg"
+                    className="absolute inset-0 size-full bg-white/10"
+                    style={{
+                      borderRadius: 99,
+                    }}
+                  />
+                )}
+              </a>
+            ) : (
+              <button
+                className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-base font-medium text-white/50 transition-colors duration-300 hover:text-white group"
+                onMouseEnter={() => setIsHover(navItem.id)}
+                onMouseLeave={() => setIsHover(null)}
+              >
+                <span>{navItem.label}</span>
+                {navItem.subMenus && (
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-300 group-hover:rotate-180 ${
+                      openMenu === navItem.label ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
+                {(isHover === navItem.id || openMenu === navItem.label) && (
+                  <motion.div
+                    layoutId="hover-bg"
+                    className="absolute inset-0 size-full bg-white/10"
+                    style={{
+                      borderRadius: 99,
+                    }}
+                  />
+                )}
+              </button>
+            )}
 
             <AnimatePresence>
               {openMenu === navItem.label && navItem.subMenus && (

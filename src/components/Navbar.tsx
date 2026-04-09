@@ -7,7 +7,7 @@ export const NAV_ITEMS: MegaMenuItem[] = [
   {
     id: 1,
     label: "Our Services",
-    link: "#services"
+    link: "/#services"
   },
   {
     id: 3,
@@ -21,8 +21,9 @@ export const NAV_ITEMS: MegaMenuItem[] = [
       },
     ],
   },
-  { id: 4, label: "Who We Are", link: "#" },
+  { id: 4, label: "Who We Are", link: "/who-we-are" },
   { id: 5, label: "Ultimate Insights", link: "#" },
+  { id: 6, label: "Contact Us", link: "/contact" },
 ];
 
 const MobileNavItem: React.FC<{ item: MegaMenuItem }> = ({ item }) => {
@@ -112,7 +113,7 @@ const Navbar = () => {
             <button onClick={() => setIsSearchOpen(true)} className="p-2 text-white">
               <Search className="w-5 h-5" />
             </button>
-            <a href="#contact" className="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-blue-600 transition-colors flex items-center">
+            <a href="/contact" className="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-blue-600 transition-colors flex items-center">
               Work With Us <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>
@@ -131,7 +132,7 @@ const Navbar = () => {
             {NAV_ITEMS.map((item) => (
               <MobileNavItem key={item.id} item={item} />
             ))}
-            <a href="#contact" className="block w-full text-center bg-primary text-white px-6 py-3 rounded-full font-medium mt-6">
+            <a href="/contact" className="block w-full text-center bg-primary text-white px-6 py-3 rounded-full font-medium mt-6">
               Work With Us
             </a>
           </div>

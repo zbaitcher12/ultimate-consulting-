@@ -3,6 +3,8 @@ import { ArrowRight, Search, Rocket, Box, Cpu } from 'lucide-react';
 import { motion, animate, useInView } from 'motion/react';
 import { Routes, Route } from 'react-router-dom';
 import FeedbackPage from './pages/FeedbackPage';
+import ContactPage from './pages/ContactPage';
+import WhoWeArePage from './pages/WhoWeArePage';
 import HigherEducationPage from './pages/HigherEducationPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -274,6 +276,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/feedback" element={<FeedbackPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/who-we-are" element={<WhoWeArePage />} />
       <Route path="/higher-education" element={<HigherEducationPage />} />
       <Route path="/*" element={
         <div className="min-h-screen bg-slate-50 font-sans">
