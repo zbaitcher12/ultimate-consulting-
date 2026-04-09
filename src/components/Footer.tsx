@@ -36,7 +36,6 @@ const Footer = () => {
           <div className="md:col-span-4 flex flex-col space-y-4">
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <FooterLink text="Our Services" />
-            <FooterLink text="Our Partners" />
             <FooterLink text="Our Customers" />
             <FooterLink text="Who We Are" />
             <FooterLink text="Ultimate Insights" />

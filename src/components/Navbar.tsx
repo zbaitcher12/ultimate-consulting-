@@ -18,19 +18,6 @@ export const NAV_ITEMS: MegaMenuItem[] = [
     ],
   },
   {
-    id: 2,
-    label: "Our Partners",
-    subMenus: [
-      {
-        title: "Ecosystem",
-        items: [
-          { label: "Ellucian", description: "Higher Education Platform", icon: Box },
-          { label: "Oracle PeopleSoft", description: "Enterprise Solutions", icon: Rocket },
-        ],
-      },
-    ],
-  },
-  {
     id: 3,
     label: "Our Customers",
     subMenus: [
