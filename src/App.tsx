@@ -229,19 +229,20 @@ const CTA = () => {
 
 const LogoCarousel = () => {
   const logos = [
-    "https://4ucit.com/wp-content/uploads/2022/11/Miami.png",
+    "https://4ucit.com/wp-content/uploads/2022/11/MiamiUniversity.png",
     "https://4ucit.com/wp-content/uploads/2022/11/UNCG.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/NMCC.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/Charlotte.png",
+    "https://4ucit.com/wp-content/uploads/2022/11/Northeast.png",
+    "https://4ucit.com/wp-content/uploads/2022/11/UNCcharlotte.png",
     "https://4ucit.com/wp-content/uploads/2022/11/SFCC.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/UofCal.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/Penn.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/UVI.png",
+    "https://4ucit.com/wp-content/uploads/2022/11/California.png",
+    "https://4ucit.com/wp-content/uploads/2022/11/PENN.png",
+    "https://4ucit.com/wp-content/uploads/2023/01/west-indies.png",
     "https://4ucit.com/wp-content/uploads/2022/11/Xavier.png",
     "https://4ucit.com/wp-content/uploads/2022/11/ACU.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/Doane.png",
+    "https://4ucit.com/wp-content/uploads/2023/01/doane.png",
     "https://4ucit.com/wp-content/uploads/2022/11/Clemson.png",
-    "https://4ucit.com/wp-content/uploads/2022/11/Regents.png"
+    "https://4ucit.com/wp-content/uploads/2022/11/Regents.png",
+    "https://4ucit.com/wp-content/uploads/2022/11/UNCpembroke.png"
   ];
 
   return (
