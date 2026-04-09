@@ -7,15 +7,7 @@ export const NAV_ITEMS: MegaMenuItem[] = [
   {
     id: 1,
     label: "Our Services",
-    subMenus: [
-      {
-        title: "Consulting",
-        items: [
-          { label: "Functional Consultant", description: "Align technology with business strategy", icon: Cpu },
-          { label: "Technical Consultant", description: "Unlock the power of your data", icon: Search },
-        ],
-      },
-    ],
+    link: "#services"
   },
   {
     id: 3,
