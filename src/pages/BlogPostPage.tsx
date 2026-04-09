@@ -78,11 +78,14 @@ export default function BlogPostPage() {
     return (
       <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
         <Navbar />
-        <div className="flex-1 flex flex-col items-center justify-center p-4">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 pt-32 pb-20 overflow-hidden w-full text-center shadow-lg border-b border-blue-900/50">
+           <h1 className="text-3xl font-bold text-white relative z-10">Post Not Found</h1>
+        </div>
+        <div className="flex-1 flex flex-col items-center justify-center p-4 py-20">
+          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
             <Calendar className="w-8 h-8 text-blue-600" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center">Post Not Found</h1>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">This article is unavailable</h2>
           <p className="text-gray-500 mb-8 max-w-md text-center">
             This article is not available or is still being drafted.
           </p>
@@ -99,38 +102,40 @@ export default function BlogPostPage() {
     <div className="min-h-screen bg-white font-sans">
       <Navbar />
 
-      <main className="pt-32 pb-24 lg:pt-40 lg:pb-32">
-        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden shadow-xl mb-16">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <Link to="/insights" className="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white mb-10 transition-colors uppercase tracking-widest drop-shadow-md">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Insight Hub
+          </Link>
           
-          {/* Header */}
-          <header className="mb-14">
-            <Link to="/insights" className="inline-flex items-center text-sm font-semibold text-gray-500 hover:text-blue-600 mb-8 transition-colors uppercase tracking-widest">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back Insight Hub
-            </Link>
-            
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 block mb-4">
-              {post.category}
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400 block mb-6 drop-shadow-sm">
+            {post.category}
+          </span>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-10 shadow-black/50 drop-shadow-lg">
+            {post.title}
+          </h1>
+          
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-300 font-medium">
+            <span className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/10 backdrop-blur-sm">
+                <User className="w-5 h-5 text-gray-100" />
+              </div>
+              <span className="text-white drop-shadow-md">{post.author}</span>
             </span>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight mb-8">
-              {post.title}
-            </h1>
-            
-            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 font-medium border-y border-gray-100 py-4">
-              <span className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
-                  <User className="w-5 h-5 text-slate-500" />
-                </div>
-                {post.author}
-              </span>
-              <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:block"></span>
-              <span className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-gray-400" />
-                {post.date}
-              </span>
-            </div>
-          </header>
+            <span className="w-1 h-1 rounded-full bg-white/30 hidden sm:block"></span>
+            <span className="flex items-center gap-2 drop-shadow-md">
+              <Calendar className="w-4 h-4 text-white/50" />
+              <span className="text-white">{post.date}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <main className="pb-24">
+        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Featured Image */}
           <motion.div 
