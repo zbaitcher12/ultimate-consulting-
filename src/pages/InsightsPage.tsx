@@ -5,36 +5,7 @@ import { ArrowRight, Calendar, User, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-// Placeholder blog data to display
-const blogPosts = [
-  {
-    id: 1,
-    title: "Navigating the Shift: Upgrading from Banner 8 to Banner 9",
-    category: "ERP Modernization",
-    author: "Zachary Baitcher",
-    date: "October 12, 2025",
-    excerpt: "Higher education institutions are facing unprecedented pressure to modernize. We explore the critical steps to ensure a seamless upgrade to Ellucian Banner.",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 2,
-    title: "How to Build a Resilient IT Infrastructure for Modern Campuses",
-    category: "Strategic Technology",
-    author: "Jan Samuel",
-    date: "September 28, 2025",
-    excerpt: "Data security and system reliability are paramount. Dive into our ultimate framework for establishing business continuity in higher education IT.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 3,
-    title: "Maximizing the Value of Workday Student Integrations",
-    category: "System Integration",
-    author: "Darryl Nash",
-    date: "September 15, 2025",
-    excerpt: "Transitioning to Workday? Here is how to construct fluid data exchanges that empower your faculty and student success teams.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
-  }
-];
+import { blogPosts } from '../data/blogPosts';
 
 export default function InsightsPage() {
   return (
@@ -120,7 +91,7 @@ export default function InsightsPage() {
                   </p>
                   
                   <div className="mt-auto pt-4 border-t border-gray-50">
-                    <Link to={post.id === 1 ? "/insights/upgrading-from-banner-8-to-banner-9" : `/insights/coming-soon-${post.id}`} className="flex items-center text-sm font-semibold text-blue-600 group-hover:text-blue-800 transition-colors">
+                    <Link to={`/insights/${post.slug}`} className="flex items-center text-sm font-semibold text-blue-600 group-hover:text-blue-800 transition-colors">
                       Read Article
                       <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -130,12 +101,6 @@ export default function InsightsPage() {
             ))}
           </div>
           
-          {/* Pagination Placeholder */}
-          <div className="mt-16 flex justify-center">
-             <button className="px-8 py-3.5 bg-white border border-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm">
-               Load More Insights
-             </button>
-          </div>
         </div>
       </section>
 
