@@ -6,6 +6,57 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { blogPosts } from '../data/blogPosts';
 
+const ShareBar = ({ title }: { title: string }) => {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(title);
+
+  return (
+    <div className="flex items-center gap-3 mt-12 pt-8 border-t border-gray-100">
+      <span className="text-sm font-semibold text-gray-500 mr-1">Share the Post:</span>
+
+      {/* Facebook */}
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Facebook"
+        className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-700 transition-colors"
+      >
+        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+        </svg>
+      </a>
+
+      {/* Twitter / X */}
+      <a
+        href={`https://twitter.com/intent/tweet?url=${url}&text=${text}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Twitter"
+        className="w-9 h-9 rounded-full bg-sky-500 flex items-center justify-center hover:bg-sky-600 transition-colors"
+      >
+        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+
+      {/* LinkedIn */}
+      <a
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on LinkedIn"
+        className="w-9 h-9 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-800 transition-colors"
+      >
+        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+    </div>
+  );
+};
+
 export default function BlogPostPage() {
   const { slug } = useParams();
 
@@ -95,6 +146,7 @@ export default function BlogPostPage() {
           {/* Content */}
           <div className="max-w-3xl mx-auto">
             {post.content}
+            <ShareBar title={post.title} />
           </div>
 
         </article>
