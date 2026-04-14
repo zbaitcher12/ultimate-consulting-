@@ -63,17 +63,17 @@ const Partnerships = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <PartnerCard 
             logo="/ellucian.png"
-            description="We help institutions implement, optimize, and support Ellucian Banner and Colleague across student, financial aid, finance, HR, payroll, and related administrative functions. Whether your institution is addressing daily operational challenges, planning for modernization, or improving service delivery, our team brings the functional and technical experience to help you move forward."
+            description="We help institutions implement, optimize, and support Ellucian Banner and Colleague across student, financial aid, finance, HR, payroll, and related administrative functions. Whether your institution is addressing daily operational challenges, planning for modernization, or improving service delivery, our team brings the deep functional and technical experience to help you move forward. From technical database administration and API system integrations to functional module configuration and custom PageBuilder development, we offer comprehensive functional and technical support tailored to your Ellucian environment."
             linkText="Explore Ellucian Services"
           />
           <PartnerCard 
             logo="https://avaap.com/wp-content/uploads/2025/10/workday.png"
-            description="Ultimate Consulting supports colleges and universities with Workday initiatives across human capital management, finance, student operations, reporting, and organizational alignment. We help institutions improve adoption, streamline operations, and maximize the value of their technology investments."
+            description="Ultimate Consulting supports colleges and universities with Workday initiatives across human capital management, finance, student operations, reporting, and organizational alignment. We provide expert functional and technical support to ensure your Workday environment and complex system migrations are successful. Whether we are building technical inbound and outbound data synchronizations between legacy systems and Workday, or providing functional staff augmentation for your Registrar and Financial Aid teams during a transition, we help institutions improve adoption, streamline operations, and maximize the value of their technology investments."
             linkText="Explore Workday Services"
           />
           <PartnerCard 
             logo="/oracle.png"
-            description="Ultimate Consulting offers comprehensive Oracle PeopleSoft services, helping organizations optimize, upgrade, and maintain their enterprise applications."
+            description="Ultimate Consulting offers comprehensive Oracle PeopleSoft services, helping organizations optimize, upgrade, and maintain their enterprise applications. We deliver specialized functional and technical support across PeopleSoft environments to ensure your campus systems operate flawlessly. From providing technical database troubleshooting and error recovery for HR and Finance modules, to delivering functional end-user training and resolving complex Financial Aid packaging and disbursement issues, our experts ensure your PeopleSoft investment is fully supported."
             linkText="Explore PeopleSoft Services"
             logoClassName="bg-white p-2 rounded-lg"
           />
