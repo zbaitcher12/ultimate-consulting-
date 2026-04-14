@@ -265,7 +265,7 @@ export default function HigherEducationPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* breadcrumb */}
           <nav className="flex mb-10 text-xs font-semibold text-white/50 uppercase tracking-widest">
-            <a href="/" className="hover:text-white transition-colors">Our Customers</a>
+            <span>Our Customers</span>
             <span className="mx-2 text-white/30">/</span>
             <span className="text-white">Higher Education</span>
           </nav>
