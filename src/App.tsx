@@ -10,6 +10,7 @@ import InsightsPage from './pages/InsightsPage';
 import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
+import EnterpriseSystemStrategyPage from './pages/EnterpriseSystemStrategyPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -119,15 +120,16 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          <ServiceCard 
+          <ServiceCard
             title="Enterprise System Strategy and Support"
             description="We provide implementation support, optimization, advisory services, and operational guidance for the core systems that power your institution."
+            link="/services/enterprise-system-strategy"
           />
-          <ServiceCard 
+          <ServiceCard
             title="Process Improvement and Operational Efficiency"
             description="We help colleges and universities streamline workflows, reduce manual effort, improve collaboration across departments, and better align systems with institutional goals."
           />
-          <ServiceCard 
+          <ServiceCard
             title="Change Management, Training, and Functional Leadership"
             description="We prepare teams for change through strategic planning, stakeholder engagement, communication, training, and ongoing functional support that drives adoption and long-term success."
           />
@@ -137,8 +139,8 @@ const Services = () => {
   );
 };
 
-const ServiceCard = ({ title, description }: { title: string, description: string }) => (
-  <motion.div 
+const ServiceCard = ({ title, description, link }: { title: string, description: string, link?: string }) => (
+  <motion.div
     whileHover={{ y: -10 }}
     className="group relative rounded-2xl overflow-hidden shadow-lg h-80 md:h-96 flex flex-col justify-start bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
   >
@@ -146,7 +148,7 @@ const ServiceCard = ({ title, description }: { title: string, description: strin
     <div className="relative z-10 p-8 flex flex-col h-full">
       <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
       <p className="text-gray-200 mb-6 leading-relaxed line-clamp-4">{description}</p>
-      <a href="#" className="inline-flex items-center text-white font-medium mt-auto group-hover:translate-x-1 transition-transform">
+      <a href={link || "#"} className="inline-flex items-center text-white font-medium mt-auto group-hover:translate-x-1 transition-transform">
         View Capabilities <ArrowRight className="ml-2 w-4 h-4" />
       </a>
     </div>
@@ -292,6 +294,7 @@ export default function App() {
       <Route path="/higher-education" element={<HigherEducationPage />} />
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/terms" element={<TermsPage />} />
+      <Route path="/services/enterprise-system-strategy" element={<EnterpriseSystemStrategyPage />} />
       <Route path="/*" element={
         <div className="min-h-screen bg-slate-50 font-sans">
           <Navbar />
