@@ -11,6 +11,7 @@ import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
 import EnterpriseSystemStrategyPage from './pages/EnterpriseSystemStrategyPage';
+import ProcessImprovementPage from './pages/ProcessImprovementPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -128,6 +129,7 @@ const Services = () => {
           <ServiceCard
             title="Process Improvement and Operational Efficiency"
             description="We help colleges and universities streamline workflows, reduce manual effort, improve collaboration across departments, and better align systems with institutional goals."
+            link="/services/process-improvement"
           />
           <ServiceCard
             title="Change Management, Training, and Functional Leadership"
@@ -295,6 +297,7 @@ export default function App() {
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/terms" element={<TermsPage />} />
       <Route path="/services/enterprise-system-strategy" element={<EnterpriseSystemStrategyPage />} />
+      <Route path="/services/process-improvement" element={<ProcessImprovementPage />} />
       <Route path="/*" element={
         <div className="min-h-screen bg-slate-50 font-sans">
           <Navbar />
