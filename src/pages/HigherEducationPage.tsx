@@ -98,7 +98,7 @@ const caseStudies = [
     institution: 'Santa Fe Community College',
     tag: 'Financial Aid & Migration',
     icon: GraduationCap,
-    logo: '/colleges logos/santa fe community college logo.png',
+    logo: '/colleges logos/new_santa-fe-community-college_orig.png',
     text: 'As Santa Fe transitioned its systems, Ultimate Consulting provided crucial functional support for the Financial Aid team during a complex Banner-to-Workday migration, ensuring loan application processing and compliance continued flawlessly. Previously, we successfully automated their student-advisor assignment process using SQL rules to prevent advisor overloads.',
   },
   {
