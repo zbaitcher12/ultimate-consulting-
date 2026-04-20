@@ -77,7 +77,7 @@ const caseStudies = [
     institution: 'Kent State University',
     tag: 'Project Management & System Upgrades',
     icon: ClipboardCheck,
-    logo: '/colleges logos/kent-state.jpg',
+    logo: '/colleges logos/Kent_State_University_Logo.svg.png',
     logoSize: 'max-h-20',
     text: 'Kent State University partnered with Ultimate Consulting to provide expert project management and technical services for their Banner 9 Self-Service upgrade. Our team guided the functional and technical implementation across the Banner General, Finance, Employee, Student, and Faculty modules, helping the university streamline processes, improve customer service, and enhance daily business operations.',
   },
