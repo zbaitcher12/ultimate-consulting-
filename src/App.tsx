@@ -28,7 +28,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-amber-400 font-bold tracking-[0.2em] uppercase text-[10px] mb-6 block drop-shadow-sm">
+            <span className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs mb-6 block drop-shadow-sm">
               Modernize Higher Education with Confidence
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8 max-w-4xl">
