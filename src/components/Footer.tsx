@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           <div className="md:col-span-4">
             <img
-              src="https://4ucit.com/wp-content/uploads/2022/11/NAV-Logo-WHITE2-768x156.png"
+              src="/CONSULTINGfinal.png"
               alt="Ultimate Consulting"
               className="h-12 mb-8"
               referrerPolicy="no-referrer"
