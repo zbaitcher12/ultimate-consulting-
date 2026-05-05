@@ -14,6 +14,696 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 1,
+    slug: 'erp-replacement-vs-institutional-transformation',
+    title: 'ERP Replacement vs. Institutional Transformation—Why the Difference Matters',
+    category: 'ERP Systems',
+    author: 'Darryl Nash',
+    date: 'May 4, 2026',
+    excerpt:
+      'There are two fundamentally different ways to approach an ERP migration in higher education. Both can technically succeed—but only one delivers real institutional value.',
+    image: 'https://4ucit.com/wp-content/uploads/2026/04/zgWZQcl_DOTMnIyKuoiVx.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
+          There are two fundamentally different ways to approach an ERP migration in higher
+          education.
+        </p>
+
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The first treats the migration as a <strong>replacement project</strong>.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The second treats it as a <strong>transformation initiative</strong>.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Both approaches can technically succeed.
+        </p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          But only one delivers real institutional value.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          The Two Paths: Replacement vs. Transformation
+        </h2>
+
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          A <strong>replacement approach</strong> focuses on continuity:
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Move from the old system to the new system',
+            'Minimize disruption',
+            'Preserve workflows and data structures',
+            'Define success as going live on time and on budget',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          A <strong>transformation approach</strong> focuses on capability:
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Redesign how the institution operates',
+            'Improve the full student lifecycle',
+            'Strengthen analytics and decision-making',
+            'Increase operational agility',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">Success is not just go-live.</p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Success is what the institution can do <em>after</em> go-live that it could not do before.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Why Replacement Thinking Dominates
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Replacement thinking is common—and understandable.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">ERP migrations are:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {['Expensive', 'Disruptive', 'High-risk'].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Institutions that have experienced difficult implementations tend to prioritize stability
+          over innovation.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The easiest path is to configure the new system to behave like the old one.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">That approach:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Reduces training effort',
+            'Minimizes resistance from staff',
+            'Creates a smoother transition to go-live',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">But it comes at a cost.</p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 mb-0">
+            The institution ends up spending millions to recreate the same limitations on a new
+            platform.
+          </p>
+        </div>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          What Transformation Thinking Actually Requires
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Transformation is harder. It requires leadership to engage at a deeper level before
+          implementation begins.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">Key questions include:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'What capabilities do we need that our current system cannot support?',
+            'Which processes exist because of system limitations—not intentional design?',
+            'What should the student lifecycle look like from inquiry to graduation?',
+            'What analytics capabilities are required for better decisions?',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">Transformation requires:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Cross-functional leadership alignment',
+            'Authority to redesign processes',
+            'Willingness to accept short-term disruption',
+            'A clear vision of long-term capability',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          It also requires redefining success.
+        </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 mb-0">
+            Transformation projects measure outcomes—not just milestones.
+          </p>
+        </div>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Where Transformation Creates the Most Value
+        </h2>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          When done correctly, ERP transformation delivers measurable impact in several areas:
+        </p>
+
+        <div className="space-y-6 mb-10">
+          <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Student Lifecycle Management</h3>
+            <p className="text-gray-600 leading-relaxed text-lg mb-4">
+              A connected experience from prospect to alumni:
+            </p>
+            <ul className="space-y-2 text-gray-600">
+              <li>• Integrated financial aid, registration, and advising</li>
+              <li>• Unified student data</li>
+              <li>• Improved retention and engagement</li>
+            </ul>
+          </div>
+          <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Analytics and Reporting</h3>
+            <p className="text-gray-600 leading-relaxed text-lg mb-4">
+              Better data leads to better decisions:
+            </p>
+            <ul className="space-y-2 text-gray-600">
+              <li>• Faster, more accurate reporting</li>
+              <li>• Data architecture designed for insight—not just storage</li>
+              <li>• Stronger enrollment and financial planning</li>
+            </ul>
+          </div>
+          <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              Automation and Workflow Efficiency
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-lg mb-4">
+              Modern ERP systems enable automation that legacy systems could not:
+            </p>
+            <ul className="space-y-2 text-gray-600">
+              <li>• Reduced manual processes</li>
+              <li>• Streamlined operations</li>
+              <li>• Increased staff productivity</li>
+            </ul>
+          </div>
+          <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Institutional Agility</h3>
+            <p className="text-gray-600 leading-relaxed text-lg mb-4">
+              Transformation builds long-term capability:
+            </p>
+            <ul className="space-y-2 text-gray-600">
+              <li>• Ability to adapt processes quickly</li>
+              <li>• Continuous improvement post-go-live</li>
+              <li>• Better alignment with evolving institutional needs</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          The Decision Happens Before Implementation
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The choice between replacement and transformation is not made during implementation.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          It is made <strong>before the project begins</strong>:
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'When leadership defines success',
+            'When scope is established',
+            'When teams decide whether to preserve or redesign workflows',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          These are not technical decisions.
+        </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 mb-0">They are leadership decisions.</p>
+        </div>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          A Leadership Question Worth Asking
+        </h2>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 italic mb-0">
+            "Is your ERP migration designed to modernize how your institution operates—or simply
+            replicate the past on a new platform?"
+          </p>
+        </div>
+        <p className="text-lg text-gray-600 leading-relaxed">
+          The answer to that question will shape your institution's capabilities for the next
+          decade.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: 2,
+    slug: 'hidden-work-erp-migration-before-go-live',
+    title: 'The Hidden Work of ERP Migration—What Happens Before Go-Live',
+    category: 'ERP Systems',
+    author: 'Darryl Nash',
+    date: 'April 27, 2026',
+    excerpt:
+      'Most conversations about ERP migration focus on go-live. What receives far less attention—and what actually determines success—is the work that happens before it.',
+    image: 'https://4ucit.com/wp-content/uploads/2026/04/yvKQUfcUDCaUeicgD5nM-1024x1024.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
+          Most conversations about ERP migration focus on go-live.
+        </p>
+
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The go-live date. The readiness review. The communications plan. The support structure.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          What receives far less attention—and what actually determines success—is the work that
+          happens before it.
+        </p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          The preparation phase is where the real complexity lives. And in higher education, that
+          complexity is almost always underestimated.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Data Cleanup Is the Work Nobody Wants to Do
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Every institution that has migrated an ERP system eventually discovers the same reality:
+        </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 mb-0">
+            Their data is not as clean as they thought.
+          </p>
+        </div>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Years—often decades—of manual entry, inconsistent usage, and undocumented processes create
+          data environments that break under the pressure of migration.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">Common issues include:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Duplicate student records across departments',
+            "Financial aid data that doesn't reconcile with finance records",
+            'Outdated or retired academic programs still active in the system',
+            'HR data inconsistencies that block automation',
+            'Invalid or incomplete identity and address data',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Data cleanup is not glamorous. It requires time, coordination, and institutional
+          commitment.
+        </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 mb-0">
+            When institutions delay cleanup until after go-live, they're choosing to go live with
+            known problems—and pay more to fix them later.
+          </p>
+        </div>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Process Redesign Must Happen Before Configuration
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          One of the biggest mistakes institutions make is configuring the new system to behave
+          like the old one.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          It feels safe. It reduces resistance.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          But it eliminates the value of the migration.
+        </p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          ERP systems are designed with different logic, workflows, and capabilities. Forcing a new
+          system to replicate old processes carries forward inefficiencies instead of eliminating
+          them.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Effective pre-implementation work includes:
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Documenting current workflows to understand purpose—not replicate steps',
+            'Identifying which processes are policy-driven vs. system-driven',
+            "Designing workflows based on the new system's capabilities",
+            'Aligning leadership on process decisions before configuration begins',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          This is transformation work—not technical work.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Cross-Department Collaboration Is Not Optional
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          ERP systems don't belong to one department.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">They span the entire institution:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Financial Aid',
+            'Registration',
+            'Student Accounts',
+            'Human Resources',
+            'Finance',
+            'Academic Affairs',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          When departments plan in isolation, integration issues surface late—often during testing
+          or go-live.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">Typical breakdowns include:</p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            "Financial aid structures that don't align with finance",
+            'Term structures that conflict with academic planning',
+            "Data dependencies that weren't identified early",
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Cross-functional collaboration during pre-implementation ensures these issues are
+          identified early—when they are easier and less costly to fix.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Governance Planning Before Go-Live Determines Stability After
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Governance does not begin at go-live. It should already be in place.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Institutions that fail to define governance early struggle during stabilization.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Pre-go-live governance planning should define:
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Who approves system changes after go-live',
+            'How support requests are prioritized',
+            'Escalation paths for cross-department conflicts',
+            'Transition from implementation team to operational support',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Without this structure, post-go-live becomes reactive instead of controlled.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          The Work Before Go-Live Determines Everything After
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The preparation phase rarely gets attention in executive dashboards.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          There are no milestone celebrations for data cleanup.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          No announcements for process redesign.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          No recognition for governance planning.
+        </p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          But this is the work that determines whether go-live is smooth—or chaotic.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          A Leadership Question Worth Asking
+        </h2>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 italic mb-0">
+            "If your ERP went live tomorrow, how confident are you that your institution's data and
+            processes are truly ready?"
+          </p>
+        </div>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          That confidence is not built at go-live.
+        </p>
+        <p className="text-lg text-gray-600 leading-relaxed">
+          It is built in the work that happens before it.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: 3,
+    slug: 'why-erp-migrations-fail-higher-education',
+    title: 'Why ERP Migrations Fail in Higher Education—And What Leadership Often Misses',
+    category: 'ERP Systems',
+    author: 'Darryl Nash',
+    date: 'April 20, 2026',
+    excerpt:
+      'Higher education institutions invest millions in ERP migration projects. They invest far less in understanding why those projects so frequently fall short.',
+    image: 'https://4ucit.com/wp-content/uploads/2026/04/pjT_yeO1r_ph49LcY0Jvh-1-1024x580.png',
+    content: (
+      <>
+        <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
+          Higher education institutions invest millions in ERP migration projects.
+        </p>
+
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          They invest far less in understanding why those projects so frequently fall short.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          The reasons ERP migrations fail in higher education are well documented in post-mortems
+          and consulting after-action reviews. They are not mysteries. They are
+          patterns—predictable, recurring, and almost always traceable back to decisions made at the
+          leadership level, not just the implementation level.
+        </p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Understanding those patterns is the first step toward breaking them.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Leadership Misalignment Is the Root Cause Most Institutions Don't Name
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Ask most higher education leaders why an ERP migration struggled, and you will often hear
+          answers about vendors, timelines, and data complexity.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Those are symptoms. The root cause is usually leadership misalignment.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          ERP migration in higher education requires sustained, coordinated commitment from
+          leadership across the institution. When any group treats the migration as primarily
+          someone else's responsibility, the resulting gaps create risk that no implementation team
+          can fully absorb.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          <strong>Common examples of leadership misalignment include:</strong>
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Delegating ERP decisions without granting authority to make cross-department decisions',
+            'Technology leaders owning systems but not adoption or change management',
+            'Key stakeholders brought in after major decisions are already made',
+            'Leadership signaling priority without protecting time, budget, or staffing',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Alignment does not mean agreement on every decision. It means clarity on goals,
+          accountability, and decision ownership.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Unrealistic Expectations Create Risk That Compounds Over Time
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          A second major driver of ERP migration failure is unrealistic expectations.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          ERP migrations impact nearly every operational function, including:
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Financial Aid',
+            'Registration',
+            'Finance',
+            'Human Resources',
+            'Student Services',
+            'Academic Affairs',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          They also involve migrating years—or decades—of complex, inconsistent, and often
+          undocumented data.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          <strong>Realistic expectations require acknowledging:</strong>
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Data cleanup takes longer than expected',
+            'Legacy customizations may not translate directly',
+            'Staff capacity requirements increase significantly',
+            'Post-go-live stabilization is where the real work begins',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          When leadership ignores these realities, risk compounds quickly.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Poor Governance Structures Make Problems Permanent
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          ERP projects without strong governance don't just encounter problems—they create problems
+          no one has authority to solve.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          <strong>Effective governance requires:</strong>
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'A steering committee with real decision-making authority',
+            'Clear escalation paths for conflicts',
+            'A project owner with institutional accountability',
+            'Defined criteria for scope decisions',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Without governance, unresolved decisions lead to delays. Delays lead to budget overruns.
+          And budget overruns force reactive leadership decisions that should have been proactive.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          Change Management Is Not a Line Item—It's the Work
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          One of the most expensive mistakes institutions make is treating change management as a
+          training task rather than an institutional investment.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          Change management is the work of helping people understand, adopt, and operate in a new
+          system.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          <strong>That includes:</strong>
+        </p>
+        <ul className="mb-10 space-y-3 pl-0">
+          {[
+            'Ongoing communication from kickoff through stabilization',
+            'Department-level champions',
+            'Leadership modeling system adoption',
+            'Continuous support beyond go-live',
+          ].map((item) => (
+            <li key={item} className="flex items-start">
+              <span className="w-2 h-2 mt-2 mr-4 bg-blue-600 rounded-full flex-shrink-0" />
+              <span className="text-lg text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          Without this investment, institutions end up with systems that are technically
+          implemented—but operationally ineffective.
+        </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 mb-0">
+            That is not a technology failure. It is a transformation failure.
+          </p>
+        </div>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
+          A Leadership Question Worth Asking Now
+        </h2>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          ERP migrations succeed when they are treated as institutional transformation
+          initiatives—not just technology deployments.
+        </p>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          The difference comes down to leadership decisions, governance, expectations, and change
+          management.
+        </p>
+        <p className="mb-6 text-gray-600 leading-relaxed text-lg">
+          <strong>Ask yourself:</strong>
+        </p>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-10">
+          <p className="text-xl font-medium text-gray-900 italic mb-0">
+            "Is your ERP migration being treated as a technology project—or an institutional
+            transformation initiative?"
+          </p>
+        </div>
+        <p className="mb-10 text-gray-600 leading-relaxed text-lg">
+          That distinction determines everything that follows.
+        </p>
+
+        <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Discussion Question</h2>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8">
+          <p className="text-xl font-medium text-gray-900 italic mb-0">
+            "If your ERP went live tomorrow, how confident are you that your institution's
+            leadership, governance, and change management approach are truly aligned for success?"
+          </p>
+        </div>
+      </>
+    ),
+  },
+  {
     id: 4,
     slug: 'enrollment-cliff-technology-adapt',
     title: 'The Enrollment Cliff Is Here—How Technology Can Help Universities Adapt',
