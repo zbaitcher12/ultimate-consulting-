@@ -125,7 +125,7 @@ export default function ProcessImprovementPage() {
           </nav>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
-            <span className="inline-block text-amber-400 font-bold tracking-[0.2em] uppercase text-[10px] mb-5">
+            <span className="inline-block text-amber-400 font-bold tracking-[0.2em] uppercase text-xs mb-5">
               Core Service
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
