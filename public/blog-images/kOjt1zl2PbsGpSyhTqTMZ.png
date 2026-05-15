@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Consulting</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://4ucit.com/wp-content/uploads/2022/11/cropped-Favicon2-32x32.png" />
+    <link rel="apple-touch-icon" href="https://4ucit.com/wp-content/uploads/2022/11/cropped-Favicon2-192x192.png" />
+    <script type="module" crossorigin src="/assets/index-D9_G_e-V.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BAUYDLf4.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+

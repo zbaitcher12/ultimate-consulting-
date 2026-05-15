@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 4, 2026',
     excerpt:
       'There are two fundamentally different ways to approach an ERP migration in higher education. Both can technically succeed—but only one delivers real institutional value.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/04/zgWZQcl_DOTMnIyKuoiVx.png',
+    image: '/blog-images/zgWZQcl_DOTMnIyKuoiVx.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
     date: 'April 27, 2026',
     excerpt:
       'Most conversations about ERP migration focus on go-live. What receives far less attention—and what actually determines success—is the work that happens before it.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/04/yvKQUfcUDCaUeicgD5nM-1024x1024.png',
+    image: '/blog-images/yvKQUfcUDCaUeicgD5nM-1024x1024.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -499,7 +499,7 @@ export const blogPosts: BlogPost[] = [
     date: 'April 20, 2026',
     excerpt:
       'Higher education institutions invest millions in ERP migration projects. They invest far less in understanding why those projects so frequently fall short.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/04/pjT_yeO1r_ph49LcY0Jvh-1-1024x580.png',
+    image: '/blog-images/pjT_yeO1r_ph49LcY0Jvh-1-1024x580.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -712,7 +712,7 @@ export const blogPosts: BlogPost[] = [
     date: 'March 23, 2026',
     excerpt:
       "The enrollment cliff is no longer a future problem. It's here—and higher education leaders are feeling the effects today.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/tXyQhrNG86QVB45SqucF0.png',
+    image: '/blog-images/tXyQhrNG86QVB45SqucF0.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -807,7 +807,7 @@ export const blogPosts: BlogPost[] = [
     date: 'March 16, 2026',
     excerpt:
       "It's Q1, and on most campuses, spring operations are hitting full speed. Financial aid teams are pushing out final disbursements.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/eIANruaOOdUoN-3T0roZ.png',
+    image: '/blog-images/eIANruaOOdUoN-3T0roZ.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -970,7 +970,7 @@ export const blogPosts: BlogPost[] = [
     date: 'March 9, 2026',
     excerpt:
       "Many transformation efforts stall despite ambition. Systems launch underperforming, staff training gets delayed, and 'transformation fatigue' eventually sets in.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/3yP4482RDecw69bffuyzb.png',
+    image: '/blog-images/3yP4482RDecw69bffuyzb.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -1106,7 +1106,7 @@ export const blogPosts: BlogPost[] = [
     date: 'March 2, 2026',
     excerpt:
       'Technology work is happening everywhere on campus—but often in silos. In higher education, silos are operational liabilities that quietly erode the student experience.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/kOjt1zl2PbsGpSyhTqTMZ.png',
+    image: '/blog-images/kOjt1zl2PbsGpSyhTqTMZ.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -1249,7 +1249,7 @@ export const blogPosts: BlogPost[] = [
     date: 'February 23, 2026',
     excerpt:
       'As funding tightens and student expectations evolve, higher education institutions can no longer treat technology as a support function. It\'s now a strategic driver.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/goZUwsGkJ3hlBnA8JrmNe.png',
+    image: '/blog-images/goZUwsGkJ3hlBnA8JrmNe.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -1389,7 +1389,7 @@ export const blogPosts: BlogPost[] = [
     date: 'February 16, 2026',
     excerpt:
       'When did your president, CIO, and CFO last sit together to discuss technology as strategy—not just as cost? That gap is quietly undermining enrollment, student experience, and financial sustainability.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/nzxdjPmO39O6hDSN0W0LB.png',
+    image: '/blog-images/nzxdjPmO39O6hDSN0W0LB.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -1560,7 +1560,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 6, 2026',
     excerpt:
       "As the spring semester gets underway and institutions look toward fall enrollment, a quiet but critical risk area often gets overlooked—the financial aid office.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/SH524y4VaxiqM9NNKqtV9.png',
+    image: '/blog-images/SH524y4VaxiqM9NNKqtV9.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -1719,7 +1719,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 6, 2026',
     excerpt:
       "As spring operations accelerate across campuses, one leadership role has become increasingly vital to institutional success—and it is often still misunderstood.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/LO1lbChblUPPQyVvdk4Py.png',
+    image: '/blog-images/LO1lbChblUPPQyVvdk4Py.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -1900,7 +1900,7 @@ export const blogPosts: BlogPost[] = [
     date: 'February 9, 2026',
     excerpt:
       "As campuses settle into the spring term, student success teams, financial aid offices, and enrollment leaders are already looking ahead—monitoring retention signals and planning for fall.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/AdfVZeqKZ4arbde5mo8r-.png',
+    image: '/blog-images/AdfVZeqKZ4arbde5mo8r-.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -2006,7 +2006,7 @@ export const blogPosts: BlogPost[] = [
     date: 'February 2, 2026',
     excerpt:
       "As spring budgeting and planning intensify, CFOs across higher education face a familiar—and deeply challenging—tension: how to sustain institutional financial health while keeping college accessible.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/9Vkm9czJECYeEz6LZj_lj.png',
+    image: '/blog-images/9Vkm9czJECYeEz6LZj_lj.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -2141,7 +2141,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 26, 2026',
     excerpt:
       'A step-by-step implementation playbook for higher education institutions seeking to modernize their student information systems with Ellucian Banner.',
-    image: 'https://4ucit.com/wp-content/uploads/2026/04/ni8c5vni8c5vni8c.png',
+    image: '/blog-images/ni8c5vni8c5vni8c.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -2269,7 +2269,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 26, 2026',
     excerpt:
       "Financial aid compliance gaps accumulate quietly until they trigger audits, federal findings, or substantial repayment liabilities. Here is how to stay ahead of them.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/TiXUmEdc7BOvLU7rRAgOo.png',
+    image: '/blog-images/TiXUmEdc7BOvLU7rRAgOo.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -2367,7 +2367,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 19, 2026',
     excerpt:
       "Higher education institutions are investing heavily in predictive analytics platforms, yet many find these systems underperform. The core issue is not mathematical—it is foundational.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/peg6BueNc9fxyvNChMDZ1.png',
+    image: '/blog-images/peg6BueNc9fxyvNChMDZ1.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">
@@ -2467,7 +2467,7 @@ export const blogPosts: BlogPost[] = [
     date: 'January 12, 2026',
     excerpt:
       "Every spring, higher education leaders balance competing priorities. At the intersection sits FAFSA—one of higher education's most consequential yet underestimated processes.",
-    image: 'https://4ucit.com/wp-content/uploads/2026/01/ccB0SaisPbMr2U2bxijzR.png',
+    image: '/blog-images/ccB0SaisPbMr2U2bxijzR.png',
     content: (
       <>
         <p className="text-xl md:text-2xl font-medium text-gray-900 leading-normal border-l-4 border-blue-600 pl-6 m-0 mb-10">

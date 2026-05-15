@@ -32,12 +32,12 @@ const WhoWeArePage = () => {
     {
       name: "Zachary Baitcher",
       role: "Managing Partner",
-      image: "https://4ucit.com/wp-content/uploads/2024/10/Untitled-design-71-295x300.png"
+      image: "/team/zachary-baitcher.png"
     },
     {
       name: "Jan Samuel",
       role: "Chief Operations Officer",
-      image: "https://4ucit.com/wp-content/uploads/2023/01/Jan-295x300.png"
+      image: "/team/jan-samuel.png"
     },
     {
       name: "Darryl Nash",
