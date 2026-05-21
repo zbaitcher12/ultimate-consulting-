@@ -1,7 +1,7 @@
 ---
 title: "Why ERP Migrations Fail in Higher Education—And What Leadership Often Misses"
 slug: "why-erp-migrations-fail-in-higher-education-and-what-leadership-often-misses"
-publishDate: "2026-05-25"
+publishDate: "2026-05-21"
 image: "/blog-images/why-erp-migrations-fail-in-higher-education-and-what-leadership-often-misses.png"
 author: "Darryl Nash"
 excerpt: "ERP migrations don't fail because of bad technology. They fail because of leadership misalignment, unrealistic expectations, weak governance, and underfunded change management - patterns that are predictable, recurring, and almost always fixable."
@@ -95,10 +95,3 @@ That distinction determines everything that follows.
 
 ---
 
-## Companion Resource
-
-**ERP Migration Leadership Readiness Assessment**
-
-Is your ERP migration being treated as a technology project-or an institutional transformation initiative?
-
-[Open the ERP Migration Leadership Readiness Assessment workbook](https://gamma.app/docs/ERP-Migration-Leadership-Readiness-Assessment-xfvswun082qh9cn)
