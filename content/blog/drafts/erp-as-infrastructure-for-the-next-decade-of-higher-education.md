@@ -84,10 +84,4 @@ The time to close that gap is before the competitive pressure makes the cost of 
 
 ---
 
-## Companion Resource
 
-**Higher Ed Technology Infrastructure Readiness Guide**
-
-Are your systems preparing your institution for the next decade-or anchoring it to the past?
-
-[Open the Higher Ed Technology Infrastructure Readiness Guide workbook](https://gamma.app/docs/Higher-Ed-Technology-Infrastructure-Readiness-Guide-4ogytr5sg2qv1g0)
