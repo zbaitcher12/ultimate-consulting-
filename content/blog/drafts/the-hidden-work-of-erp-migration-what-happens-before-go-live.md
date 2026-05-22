@@ -89,10 +89,3 @@ That confidence is earned in the pre-implementation phase. And the institutions 
 
 ---
 
-## Companion Resource
-
-**ERP Pre-Implementation Readiness Checklist**
-
-If your ERP went live tomorrow, how confident are you that your institution’s data and processes are truly ready?
-
-[Open the ERP Pre-Implementation Readiness Checklist workbook](https://gamma.app/docs/ERP-Pre-Implementation-Readiness-Checklist-ooi3kgfh9wbq3ok)
