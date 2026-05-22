@@ -73,4 +73,3 @@ The answer to that question shapes every technology decision your institution ma
 
 Is your CIO positioned as a strategic partner at the cabinet table-or still seen as the IT support leader?
 
-[Open the CIO Strategic Leadership Assessment workbook](https://gamma.app/docs/CIO-Strategic-Leadership-Assessment-h1o7u7kjwcsygop)
