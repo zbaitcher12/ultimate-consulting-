@@ -79,4 +79,3 @@ The answer to that question will define what your institution is capable of for 
 
 Is your ERP migration designed to modernize how your institution operates-or simply replicate the past on a new platform?
 
-[Open the ERP Transformation Opportunity Assessment workbook](https://gamma.app/docs/ERP-Transformation-Opportunity-Assessment-xi5pyesr2u15m01)
