@@ -77,10 +77,3 @@ Knowing the answer to that question—and planning accordingly—is the differen
 
 ---
 
-## Companion Resource
-
-**ERP Cutover Risk Management Playbook**
-
-If your ERP migration collided with peak financial aid or registration cycles, what would break first?
-
-[Open the ERP Cutover Risk Management Playbook workbook](https://gamma.app/docs/ERP-Cutover-Risk-Management-Playbook-rrnfnqsobiaroox)
