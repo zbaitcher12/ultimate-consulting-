@@ -67,4 +67,3 @@ The answer to that question is measurable—in yield rates, in melt rates, in re
 
 Are your systems accelerating enrollment decisions-or slowing them down?
 
-[Open the ERP Enrollment and Retention Impact Assessment workbook](https://gamma.app/docs/ERP-Enrollment-and-Retention-Impact-Assessment-ssseckwjx30weyf)
