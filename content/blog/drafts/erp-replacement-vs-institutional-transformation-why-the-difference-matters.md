@@ -73,9 +73,6 @@ The answer to that question will define what your institution is capable of for 
 
 ---
 
-## Companion Resource
 
-**ERP Transformation Opportunity Assessment**
 
-Is your ERP migration designed to modernize how your institution operates-or simply replicate the past on a new platform?
 
