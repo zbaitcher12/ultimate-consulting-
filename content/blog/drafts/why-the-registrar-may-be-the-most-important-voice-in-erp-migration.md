@@ -70,10 +70,4 @@ The institutions that get this right bring the registrar to the table early, pro
 
 ---
 
-## Companion Resource
 
-**Registrar ERP Migration Planning Guide**
-
-Are registrars shaping your ERP migration-or reacting to it after key decisions are made?
-
-[Open the Registrar ERP Migration Planning Guide workbook](https://gamma.app/docs/Registrar-ERP-Migration-Planning-Guide-ukx0tm67yxtkpe7)
