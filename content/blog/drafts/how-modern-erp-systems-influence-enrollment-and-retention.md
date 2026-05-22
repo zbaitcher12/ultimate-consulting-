@@ -61,9 +61,5 @@ The answer to that question is measurable—in yield rates, in melt rates, in re
 
 ---
 
-## Companion Resource
 
-**ERP Enrollment and Retention Impact Assessment**
-
-Are your systems accelerating enrollment decisions-or slowing them down?
 
