@@ -83,10 +83,3 @@ The institutions that answer that question correctly invest accordingly. And the
 
 ---
 
-## Companion Resource
-
-**ERP Post-Go-Live Stabilization Playbook**
-
-Is your ERP go-live the finish line-or the beginning of transformation?
-
-[Open the ERP Post-Go-Live Stabilization Playbook workbook](https://gamma.app/docs/ERP-Post-Go-Live-Stabilization-Playbook-digbx13m4361rsk)
