@@ -81,10 +81,3 @@ The institutions that treat it that way consistently extract more value from the
 
 ---
 
-## Companion Resource
-
-**ERP Post-Migration Success Framework**
-
-Do you have a post-migration roadmap-or just a go-live plan?
-
-[Open the ERP Post-Migration Success Framework workbook](https://gamma.app/docs/ERP-Post-Migration-Success-Framework-7zazt1ochvihqih)
