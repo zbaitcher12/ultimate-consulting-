@@ -67,9 +67,4 @@ The answer to that question shapes every technology decision your institution ma
 
 ---
 
-## Companion Resource
-
-**CIO Strategic Leadership Assessment**
-
-Is your CIO positioned as a strategic partner at the cabinet table-or still seen as the IT support leader?
 
