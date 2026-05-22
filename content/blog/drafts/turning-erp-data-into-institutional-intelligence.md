@@ -65,10 +65,3 @@ If the honest answer is reports—if cabinet members are making decisions on dat
 
 ---
 
-## Companion Resource
-
-**ERP Analytics Capability Roadmap**
-
-Are your systems generating insight-or just producing reports?
-
-[Open the ERP Analytics Capability Roadmap workbook](https://gamma.app/docs/ERP-Analytics-Capability-Roadmap-tkelvrchun8emz2)
