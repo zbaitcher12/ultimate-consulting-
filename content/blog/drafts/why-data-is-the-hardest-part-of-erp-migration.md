@@ -71,10 +71,3 @@ That confidence is not a technical measurement. It is an institutional one. And 
 
 ---
 
-## Companion Resource
-
-**Data Migration Risk and Governance Assessment**
-
-If your institution migrated systems tomorrow, how confident are you in the quality of the data being moved?
-
-[Open the Data Migration Risk and Governance Assessment workbook](https://gamma.app/docs/Data-Migration-Risk-and-Governance-Assessment-rzo29yu8kd1iuqt)
