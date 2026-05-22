@@ -68,10 +68,4 @@ If the answer is the latter, the path to integration starts with leadership deci
 
 ---
 
-## Companion Resource
 
-**Campus Systems Integration Readiness Guide**
-
-Do your campus systems function as a unified ecosystem-or a collection of disconnected tools?
-
-[Open the Campus Systems Integration Readiness Guide workbook](https://gamma.app/docs/Campus-Systems-Integration-Readiness-Guide-gvfra9fibnqhfg5)
