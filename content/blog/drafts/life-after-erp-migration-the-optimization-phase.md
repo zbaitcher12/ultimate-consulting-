@@ -78,10 +78,3 @@ The specificity of the answer to that question is a reliable indicator of whethe
 
 ---
 
-## Companion Resource
-
-**ERP Optimization Roadmap Guide**
-
-What operational improvements will your institution pursue in the first two years after ERP implementation?
-
-[Open the ERP Optimization Roadmap Guide workbook](https://gamma.app/docs/ERP-Optimization-Roadmap-Guide-69cq1kl4z1r4oat)
