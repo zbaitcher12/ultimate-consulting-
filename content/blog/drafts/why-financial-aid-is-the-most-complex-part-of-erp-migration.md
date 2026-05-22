@@ -75,10 +75,4 @@ The answer to that question is a direct predictor of financial aid migration suc
 
 ---
 
-## Companion Resource
 
-**Financial Aid ERP Migration Complexity Guide**
-
-Is your financial aid team leading ERP planning-or being brought in after key technology decisions are made?
-
-[Open the Financial Aid ERP Migration Complexity Guide workbook](https://gamma.app/docs/Financial-Aid-ERP-Migration-Complexity-Guide-wv9yzme0h64awvl)
