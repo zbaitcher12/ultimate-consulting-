@@ -85,10 +85,3 @@ Building that document is not a technology function. It is a strategic leadershi
 
 ---
 
-## Companion Resource
-
-**ERP ROI Business Case Framework**
-
-Does your ERP modernization strategy clearly connect technology investment to enrollment growth, compliance risk reduction, and financial sustainability?
-
-[Open the ERP ROI Business Case Framework workbook](https://gamma.app/docs/ERP-ROI-Business-Case-Framework-ggl5lkj2lncjgm9)
