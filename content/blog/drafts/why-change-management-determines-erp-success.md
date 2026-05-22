@@ -67,10 +67,3 @@ There is a significant difference between those two things. Preparation is an in
 
 ---
 
-## Companion Resource
-
-**ERP Change Management Planning Guide**
-
-Are your staff prepared to work differently-or simply expected to adapt to new systems?
-
-[Open the ERP Change Management Planning Guide workbook](https://gamma.app/docs/ERP-Change-Management-Planning-Guide-die94d2xs3f0xuf)
