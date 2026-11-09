@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your institution is not short on org structure. There are reporting lines, cabinet hierarchies, and committee charters. The employee handbook publishes them. Every reorganization revises them.
+
+Three things the piece names:
+- Silent ownership.
+- Bottleneck ownership.
+- Ghost ownership.
+
+Read it:
+https://4ucit.com/insights/raci-isnt-a-document-its-a-decision-architecture
+
+—
+Darryl Nash

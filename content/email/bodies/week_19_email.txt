@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Compliance work in higher education has historically run in two modes.
+
+Three things the piece names:
+- Event mode.
+- Operating mode.
+- Assign ownership to operational staff, not compliance teams.
+
+Read it:
+https://4ucit.com/insights/federal-program-review-readiness-as-operating-discipline
+
+—
+Darryl Nash

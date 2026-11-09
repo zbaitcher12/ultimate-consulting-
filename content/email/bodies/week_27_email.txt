@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Documentation work in higher education has historically followed a labor-intensive economic model. The outside firm sat with the operational staff, transcribed the workflow into long-form documentation, circulated drafts for review, reconciled the feedback, and handed over the finished work after weeks or months of cycle time. The hourly rates that supported the work were calibrated to the labor intensity. The institutions that could afford the work were the institutions with budgets that absorbed the labor cost.
+
+Three things the piece names:
+- The market sorting the old economics produced.
+- What changed.
+- What the shift opens across the sector.
+
+Read it:
+https://4ucit.com/insights/how-engagement-economics-have-changed-and-what-that-means-for-smaller-institutions
+
+—
+Darryl Nash

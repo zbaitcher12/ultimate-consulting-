@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The registrar's office runs more workflows on institutional memory than any other function in higher education. Residency classification is the most extreme example, but the pattern is consistent across the office. Workflows that require judgment. Workflows that carry compliance consequences. Workflows that have been refined over years by staff who never wrote the refinements down.
+
+Three things the piece names:
+- Residency classification.
+- Satisfactory academic progress.
+- Transfer credit evaluation.
+
+Read it:
+https://4ucit.com/insights/the-registrars-workflows-that-run-on-memory-residency-sap-and-the-documentation-gap
+
+—
+Darryl Nash

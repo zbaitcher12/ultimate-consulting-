@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The first ninety days of a new staff member's tenure in a higher-ed function typically follow a predictable pattern. The new hire receives orientation. The new hire shadows existing staff. The new hire begins executing work under supervision. The new hire becomes independently productive somewhere between ninety days and six months.
+
+Three things the piece names:
+- The new hire becomes independently productive.
+- The new hire contributes to documentation improvement.
+- The orientation explicitly invites the documentation contribution.
+
+Read it:
+https://4ucit.com/insights/onboarding-new-staff-with-documentation-as-the-first-deliverable
+
+—
+Darryl Nash

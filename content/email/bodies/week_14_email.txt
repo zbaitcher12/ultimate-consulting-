@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Ask a financial aid director whether she has a written procedure for her R2T4 calculation workflow. The answer will almost always be yes. Ask the same question about her satisfactory-academic-progress workflow, her return-of-funds reconciliation, or her disbursement-decision routing. Also yes.
+
+Three things the piece names:
+- Capture at the level of operational reality.
+- Include the exceptions.
+- Build the audit trail into the workflow.
+
+Read it:
+https://4ucit.com/insights/what-financial-aid-can-teach-every-functional-area-about-process-design
+
+—
+Darryl Nash

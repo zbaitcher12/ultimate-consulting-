@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your CFO operates at the intersection of operations and strategy. The role requires managing the day-to-day financial position, preparing your institution for strategic transitions, and representing your institution to external audiences — auditors, rating agencies, bond holders, regulatory bodies. Each of those audiences forms opinions about your institution that affect institutional capacity over multi-year horizons.
+
+Three things the piece names:
+- Bond-rating preparation.
+- Audit-cost reduction.
+- Working-capital optimization.
+
+Read it:
+https://4ucit.com/insights/the-strategic-cfo-and-operating-discipline-leading-indicators-of-cash-audit-and-bond-posture
+
+—
+Darryl Nash

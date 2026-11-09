@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Cybersecurity controls in higher education moved from optional to required in the last five years. Federal expectations around data protection, breach notification, and incident response have tightened. Cyber insurance underwriters now expect documented controls as a precondition for coverage. State data protection regulations have proliferated.
+
+Three things the piece names:
+- Change management.
+- Access provisioning and deprovisioning.
+- Incident response.
+
+Read it:
+https://4ucit.com/insights/documented-operations-as-cybersecurity-controls-the-compliance-crossover
+
+—
+Darryl Nash

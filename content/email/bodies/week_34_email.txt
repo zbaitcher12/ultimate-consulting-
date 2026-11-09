@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Federal program reviews and external audits in higher education typically arrive on a predictable cadence. The institutions that exit reviews cleanly are the institutions whose document portfolios have produced the evidence the reviewer is going to ask for, before the reviewer asks. The institutions that exit with findings are the institutions that assembled the evidence in event mode — the six-week push before the review opens.
+
+Three things the piece names:
+- Identification.
+- Documentation.
+- Evidence-mapping.
+
+Read it:
+https://4ucit.com/insights/the-audit-readiness-pipeline
+
+—
+Darryl Nash

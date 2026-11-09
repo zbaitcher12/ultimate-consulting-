@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Higher-education boards measure what matters to institutional survival. Enrollment. Financial position. Fundraising performance. Academic outcomes.
+
+Three things the piece names:
+- Documentation portfolio coverage.
+- Refresh currency.
+- Cross-functional handoff documentation.
+
+Read it:
+https://4ucit.com/insights/operating-discipline-as-a-leadership-kpi-the-measure-boards-arent-tracking
+
+—
+Darryl Nash

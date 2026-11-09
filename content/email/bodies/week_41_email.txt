@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Higher-education institutions do not typically frame the way the work actually runs as a source of competitive advantage. The frames that dominate strategic conversations are program differentiation, market positioning, student experience, and brand. Operating discipline appears in the conversation when it fails. It does not appear in the conversation when it succeeds.
+
+Three things the piece names:
+- Speed-to-decision.
+- Audit posture.
+- Talent retention.
+
+Read it:
+https://4ucit.com/insights/when-operating-discipline-becomes-a-competitive-advantage
+
+—
+Darryl Nash

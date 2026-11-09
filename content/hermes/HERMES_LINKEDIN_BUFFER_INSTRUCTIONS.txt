@@ -1,0 +1,252 @@
+HERMES LINKEDIN / BUFFER CHAIN - BUILD AND FIRE INSTRUCTIONS
+
+PURPOSE
+Hermes builds a 156-post LinkedIn queue in Buffer from the SOP-as-Front-Door content library and lets Buffer fire each post at its scheduled Monday/Wednesday/Friday 08:00 America/New_York slot. The LinkedIn posts are standalone editorial - they contain no blog link and no URL - so no blog-live trigger is required.
+
+MODEL
+Time-based scheduled sends. Each post is uploaded to Buffer once with image + body + scheduled_at. Buffer handles firing. Hermes monitors for failures and operates idempotent recovery when a post fails to publish.
+
+====================================================================
+INPUTS
+====================================================================
+
+Source folder: G:\ultimate_consulting_vp_bd\sop_front_door_blog_content\ (or wherever this folder is deployed to the automation runner)
+
+MANIFEST
+hermes_post_manifest.csv - 156 rows, one per LinkedIn post. Columns:
+  post_id              week_NN_TYPE (TYPE is mon_announce, wed_number, or fri_question)
+  week                 1 through 52
+  day_of_week          Monday, Wednesday, or Friday
+  format               Field Observation, Number Post, or Question Post
+  publish_date         Absolute ISO date (YYYY-MM-DD)
+  publish_time_local   08:00
+  publish_timezone     America/New_York
+  content_file         Relative path to the post body file
+  image_file           Relative path to the image file
+  image_status         ready (every row)
+  blog_title_paired    Reference only (do not reference in post body)
+  body_preview         First ~120 chars of body (reference only)
+
+POST BODY FILES
+linkedin_pilot\week_NN_TYPE.md - 156 files, UTF-8. Each file has a metadata header followed by the actual post body, separated by a standalone line containing exactly three hyphens. Only the content AFTER that separator is posted to Buffer.
+
+Extraction rule for each file:
+  1. Read UTF-8.
+  2. Split on the first line equal to exactly three hyphens.
+  3. Take everything after that line.
+  4. Trim leading/trailing whitespace.
+  5. The result is the Buffer post text. Do not strip markdown; LinkedIn renders plain text and the body files are already plain text.
+
+IMAGE FILES
+linkedin_images\week_NN_TYPE.jpg - 156 files, JPEG, 16:9 at 2752x1536, approximately 1 MB each. Each image is matched to its post by filename.
+
+IMAGE HOSTING REQUIREMENT
+Buffer v1 API accepts media[picture] as a URL only, not a file upload. Before calling the Buffer API, each image must be publicly fetchable at an HTTPS URL that Buffer's fetcher can reach.
+
+Hermes resolves this via one of three paths (loaded in Hermes config):
+  - S3 bucket upload with public-read ACL, returning the public URL
+  - GitHub repo push to a public-raw-URL branch
+  - Dedicated image CDN endpoint with configured upload API
+
+Record each image's resolved URL in hermes_image_cdn_map.json keyed by post_id. Reuse the mapping across runs; only re-upload when the local file's hash changes.
+
+====================================================================
+PHASE 1 - ONE-TIME SETUP (RUN ONCE, BEFORE 2026-11-09)
+====================================================================
+
+Goal: Upload all 156 posts to Buffer as scheduled queue entries, each with image + body + scheduled_at in the future.
+
+PRE-STEP A - Resolve the Buffer LinkedIn profile ID
+GET https://api.bufferapp.com/1/profiles.json with Bearer token from Hermes config. Filter the response to the LinkedIn profile(s) that should receive the series (Darryl's personal page, the Ultimate Consulting company page, or both - set in Hermes config). Cache the resolved ID(s) in hermes_buffer_profile_ids.json.
+
+If Hermes config names more than one target profile, each post is sent once per target profile in a single Buffer API call via profile_ids[] array.
+
+PRE-STEP B - Host the 156 images
+For each row in hermes_post_manifest.csv, upload the file at image_file to the configured image-hosting path. Record the public URL in hermes_image_cdn_map.json. On failure for any image: log to hermes_linkedin_setup_log.jsonl and skip that row's post for now (Phase 2 recovery retries it).
+
+PHASE 1 MAIN LOOP
+
+For each row in hermes_post_manifest.csv:
+
+1. Extract the post body from content_file per the extraction rule above.
+
+2. Look up the public image URL in hermes_image_cdn_map.json by post_id.
+
+3. Compute scheduled_at in Unix epoch (seconds):
+     Combine publish_date + publish_time_local in publish_timezone, convert to UTC, cast to Unix epoch.
+     Example: 2026-11-09 08:00 America/New_York (EST, UTC-5) -> 2026-11-09 13:00 UTC -> 1762693200.
+
+4. Build the Buffer v1 API payload (see _buffer_payload_example.json in the same folder):
+
+   POST https://api.bufferapp.com/1/updates/create.json
+   Headers:
+     Authorization: Bearer <access_token from Hermes config>
+     Content-Type: application/x-www-form-urlencoded
+   Body:
+     profile_ids[]:    one or more cached Buffer profile IDs
+     text:             the extracted post body
+     media[picture]:   public URL from hermes_image_cdn_map.json
+     media[thumbnail]: same as media[picture]
+     media[link]:      empty string (LinkedIn posts carry no URL)
+     scheduled_at:     the computed Unix epoch
+     shorten:          false
+     now:              false
+     top:              false
+
+5. POST the payload. On 200 OK, Buffer returns update IDs (one per profile_id).
+
+6. Record each update_id in hermes_linkedin_chain_state.json keyed by post_id:
+     {
+       "week_01_mon_announce": {
+         "update_ids": ["buffer_update_..."],
+         "profile_ids": ["buffer_profile_..."],
+         "image_url": "https://...",
+         "scheduled_at": 1762693200,
+         "scheduled_at_iso": "2026-11-09T13:00:00Z",
+         "status": "scheduled",
+         "sent_at": null
+       },
+       ...
+     }
+
+7. Log each setup step to hermes_linkedin_setup_log.jsonl with status, timestamp, and any error. On HTTP failure: log, continue to the next row, do not block the batch.
+
+At the end of Phase 1, hermes_linkedin_chain_state.json has 156 entries, all status "scheduled," all with valid update_ids and scheduled_at values at least one day in the future.
+
+If Phase 1 runs AFTER 2026-11-09, any rows whose scheduled_at falls in the past are skipped and logged as "skipped_past_date." Human intervention required to decide whether to backfill or let them lapse.
+
+====================================================================
+PHASE 2 - RUNTIME MONITORING (RUNS DAILY FROM 2026-11-09 THROUGH 2027-11-05)
+====================================================================
+
+Buffer handles the actual publishing. Hermes's runtime role is monitoring:
+
+DAILY LOOP (once per day, any time after 10:00 America/New_York)
+
+STEP A - Identify yesterday's scheduled posts.
+Filter hermes_linkedin_chain_state.json to entries whose scheduled_at falls on the previous calendar day and whose status is "scheduled."
+
+STEP B - Confirm sent.
+For each entry from Step A:
+  GET https://api.bufferapp.com/1/updates/<update_id>.json with Bearer token.
+  Response includes a "sent_at" field (Unix epoch) if the update has been published.
+
+  If sent_at is populated:
+    - Set entry.status = "sent," entry.sent_at = ISO timestamp
+    - Log to hermes_linkedin_runtime_log.jsonl
+
+  If sent_at is still null and more than 24 hours past scheduled_at:
+    - Set entry.status = "failed_not_sent"
+    - Send an alert naming post_id, scheduled_at, update_id
+    - Human intervention required (likely: profile disconnected, LinkedIn API rate limit, content rejected)
+
+STEP C - Health check next three days.
+Query Buffer for all queue entries with scheduled_at in the next 72 hours (GET /profiles/<id>/updates/pending.json). Cross-reference against hermes_linkedin_chain_state.json. If any entry is in state "scheduled" but Buffer does not have it in its pending queue:
+  - Set entry.status = "missing_from_buffer_queue"
+  - Send an alert
+  - Attempt a one-time re-upload using the Phase 1 payload. On success, log and update state.
+
+====================================================================
+FAILURE AND ALERT CASES
+====================================================================
+
+ALERT CASE 1 - Post did not fire within 24 hours of scheduled_at
+Handled in Step B above. Common causes: Buffer profile disconnected, LinkedIn rate limit hit, content rejected by LinkedIn.
+
+ALERT CASE 2 - Image URL returns 404 at Buffer fetch time
+Buffer attempts the image fetch roughly 15 minutes before scheduled_at. If the image host went down, the update fails. Hermes cannot detect this before Buffer tries. Recovery: re-upload the image, rebuild the update via Phase 1 payload with a new scheduled_at (the next weekly slot or an explicit human-set time).
+
+ALERT CASE 3 - Buffer API failure during Phase 1
+If POST /updates/create.json returns non-2xx:
+  - Retry up to 3 times with exponential backoff (1 min, 5 min, 15 min)
+  - On final failure, set state entry.status = "failed_create"
+  - Send an alert
+
+ALERT CASE 4 - LinkedIn rate limit on Buffer side
+If Buffer reports a rate-limit rejection in the pending-queue health check:
+  - Log the affected post_ids
+  - Send an alert
+  - Do not auto-reschedule; rate limits usually resolve within 24 hours and Buffer retries internally
+
+ALL ALERTS include: post_id, week, day_of_week, scheduled_at, update_id if known, timestamp, one-line error. No stack traces.
+
+====================================================================
+CONTENT CONSTRAINTS (PRE-UPLOAD LINT)
+====================================================================
+
+Before issuing POST /updates/create.json for any row in Phase 1, re-read the extracted body and confirm:
+
+MUST NOT CONTAIN:
+  - "ICS"
+  - "Institutional Capacity Systems"
+  - "UCIT" or "Ultimate Consulting" (gated - do not reference the firm in post body)
+  - "institutional-capacity.com"
+  - Any URL (LinkedIn posts carry no link)
+  - Hashtags (the "#" character followed by a word)
+  - Any dollar-figure fee or price (patterns like "$XXK per workflow," "fixed fee," "$X,XXX")
+  - Any specific institution name beyond the generics: "a public regional university," "an HBCU I worked with," "an MSI I worked with," "a community college," "a state system"
+  - "@" mentions unless already present in the source body file
+
+MAY CONTAIN (intentional, not violations):
+  - "EO 14283"
+  - "HBCU PARTNERS Act"
+  - "Uniform Guidance," "Title IV," "GLBA," "FSA," "NIST 800-171," "2 CFR 200," "16 CFR 314"
+  - Compliance-cost ranges presented as data points
+
+If any MUST NOT rule fails: block the upload for that post, set state entry.status = "blocked_content_lint," alert with the matched term.
+
+====================================================================
+STATE FILES THIS JOB OWNS
+====================================================================
+
+Hermes writes the following files in the same folder as this doc:
+
+  hermes_buffer_profile_ids.json      - Cached Buffer profile IDs from GET /profiles.json
+  hermes_image_cdn_map.json           - Local image path -> public image URL mapping
+  hermes_linkedin_chain_state.json    - Per-post state (update_ids, status, timestamps)
+  hermes_linkedin_setup_log.jsonl     - One line per Phase 1 setup step
+  hermes_linkedin_runtime_log.jsonl   - One line per Phase 2 monitoring event
+
+These files are the source of truth for whether a given post has been queued, published, or failed. On restart or recovery, Hermes reads hermes_linkedin_chain_state.json to resume mid-chain without re-posting.
+
+====================================================================
+IDEMPOTENCY
+====================================================================
+
+Phase 1 is idempotent: if hermes_linkedin_chain_state.json already has an entry with valid update_ids and status "scheduled" or "sent," skip the Buffer POST and keep the existing entry. Only POST when the state file does not already have update_ids for that post_id.
+
+Image upload (Pre-Step B) is idempotent via content hash: if hermes_image_cdn_map.json already has a URL for the current image's SHA-256 hash, reuse it without re-uploading.
+
+Phase 2 is idempotent at the step level: entries in status "sent," "failed_not_sent," "blocked_content_lint," or "missing_from_buffer_queue" are not re-processed on subsequent daily loops unless a human operator resets state.
+
+====================================================================
+BUFFER CONFIG
+====================================================================
+
+Buffer access token, LinkedIn profile ID(s), and image-hosting path are loaded in Hermes config. Not restated here. This doc references them by role only.
+
+If more than one LinkedIn profile is configured as a target (Darryl's personal + Ultimate Consulting company page), each post is sent once per profile in the same Buffer POST via profile_ids[] array; update_ids are returned per profile and all recorded in state.
+
+====================================================================
+TIMING SUMMARY
+====================================================================
+
+Setup window              Any time before 2026-11-09 08:00 ET
+Chain-run window          2026-11-09 08:00 ET through 2027-11-05 08:00 ET
+Weekly post slots         Monday / Wednesday / Friday 08:00 America/New_York
+First post                Monday 2026-11-09 08:00 ET (week_01_mon_announce)
+Last post                 Friday 2027-11-05 08:00 ET (week_52_fri_question)
+Daily monitor window      Runs once daily after 10:00 America/New_York
+
+====================================================================
+RELATIONSHIP TO THE EMAIL CHAIN
+====================================================================
+
+The LinkedIn chain and the email chain are independent systems. LinkedIn posts do not depend on the blog being live (they are standalone editorial, no link). The email chain does depend on the blog being live (it ships the blog URL). Hermes can run either chain without the other.
+
+The intended weekly sequence is:
+  Monday 00:00 ET   - Blog goes live at 4ucit.com/insights/{slug}
+  Monday 08:00 ET   - LinkedIn Monday Field Observation posts via this chain
+  Tuesday 09:00 ET  - GHL email ships the recap + link (see HERMES_EMAIL_CHAIN_INSTRUCTIONS.txt)
+  Wednesday 08:00 ET - LinkedIn Number Post posts via this chain
+  Friday 08:00 ET   - LinkedIn Question Post posts via this chain

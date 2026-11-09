@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The ERP war story higher-ed CIOs trade most often goes like this. We went live on the new system. Within a month, your institution discovered that configuration choices made before my arrival were locking in workflows that did not match how operations actually ran. The previous CIO had left. The implementation partner had moved on. The decisions were not reversible without significant rework.
+
+Three things the piece names:
+- Documentation maturity.
+- Configuration-to-workflow alignment.
+- The decision-authority chain.
+
+Read it:
+https://4ucit.com/insights/when-the-cio-inherits-a-mess
+
+—
+Darryl Nash

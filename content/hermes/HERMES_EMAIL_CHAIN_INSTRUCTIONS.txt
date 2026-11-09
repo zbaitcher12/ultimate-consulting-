@@ -1,0 +1,219 @@
+HERMES EMAIL CHAIN - BUILD AND TRIGGER INSTRUCTIONS
+
+PURPOSE
+Hermes builds a 52-week email chain in GoHighLevel from the SOP-as-Front-Door content library, then fires each email only after its paired blog post is confirmed live on 4ucit.com. The email is the one channel that distributes the blog URL.
+
+MODEL
+Trigger-based, not time-based. Each email is pre-loaded as a GHL draft during setup. A runtime loop polls the paired blog URL, and the email is scheduled for send only after the blog returns 200 OK.
+
+====================================================================
+INPUTS
+====================================================================
+
+Source folder: G:\ultimate_consulting_vp_bd\sop_front_door_blog_content\ (or wherever this folder is deployed to the automation runner)
+
+MANIFEST
+hermes_email_manifest.csv - 52 rows, one per weekly email. Columns:
+  email_id             week_NN_email
+  week                 1 through 52
+  send_date            Target Tuesday ISO date (YYYY-MM-DD)
+  send_time_local      09:00
+  send_timezone        America/New_York
+  blog_slug            Published blog slug
+  blog_url             Full https URL at 4ucit.com/insights/{slug}
+  blog_title           Verbatim blog title (for reference)
+  blog_excerpt         Verbatim blog excerpt (used as preheader default)
+  email_subject        Subject line (already optimized per week; use verbatim)
+  email_preview_text   Preheader text
+  email_body_file      Relative path to the plain-text body file
+
+BODY FILES
+email_bodies\week_NN_email.txt - 52 files, UTF-8 plain text. Format per file:
+
+  Hi {{first_name|there}},
+
+  [opening scene paragraph lifted from blog lede]
+
+  Three things the piece names:
+  - [ICS fragment bullet 1]
+  - [ICS fragment bullet 2]
+  - [ICS fragment bullet 3]
+
+  Read it:
+  https://4ucit.com/insights/{slug}
+
+  —
+  Darryl Nash
+
+Preserve the {{first_name|there}} token verbatim. GHL's merge engine resolves it at send time.
+
+====================================================================
+PHASE 1 - ONE-TIME SETUP (RUN ONCE, BEFORE 2026-11-09)
+====================================================================
+
+Goal: Load all 52 campaigns into GHL as DRAFTS (not scheduled). Each campaign is pre-populated and ready; the trigger loop in Phase 2 moves each one from draft to scheduled.
+
+For each row in hermes_email_manifest.csv:
+
+1. Read the body file at email_body_file into a UTF-8 string.
+
+2. Build a GHL email campaign payload with:
+     from_name:         Darryl Nash
+     from_email:        (loaded in Hermes config - the UCIT 4ucit.com sending address)
+     reply_to:          (loaded in Hermes config - same as from_email unless config overrides)
+     subject:           email_subject column
+     preview_text:      email_preview_text column
+     body_text:         contents of body file, with {{first_name|there}} intact
+     body_html:         (optional) minimal HTML wrap of body_text with <p> tags and a text-link anchor on the blog URL; no images, no banners, no logos
+     audience_list_id:  (loaded in Hermes config - the higher-ed decision-maker list)
+     tracking_opens:    true
+     tracking_clicks:   true
+     tags:              sop-front-door, week-NN, blog-{slug}
+
+3. POST the campaign to GHL as a DRAFT (not scheduled).
+
+4. Record the returned campaign_id in hermes_email_chain_state.json keyed by email_id:
+     {
+       "week_01_email": {
+         "campaign_id": "ghl_campaign_...",
+         "status": "draft",
+         "blog_url": "https://4ucit.com/insights/...",
+         "target_send": "2026-11-10T09:00:00-05:00",
+         "blog_first_seen_live": null,
+         "scheduled_at": null,
+         "sent_at": null
+       },
+       ...
+     }
+
+5. Log each setup step to hermes_email_setup_log.jsonl with status, timestamp, and any error. On failure: log, continue to the next row, do not block the batch.
+
+At the end of Phase 1, hermes_email_chain_state.json has 52 entries, all status "draft", all with a valid campaign_id.
+
+====================================================================
+PHASE 2 - RUNTIME TRIGGER LOOP (RUNS CONTINUOUSLY FROM 2026-11-09)
+====================================================================
+
+Cadence of the loop: every 15 minutes between Monday 00:00 ET and Tuesday 08:00 ET of each series week. Dormant otherwise. Hermes may run this as a cron, a scheduled worker, or an event-driven workflow; the semantics below are what matters.
+
+For each series week (1 through 52):
+
+STEP A - Identify this week's row.
+Filter hermes_email_chain_state.json to the entry whose target_send falls within the current calendar week's Tuesday. There is exactly one.
+
+STEP B - Check the paired blog URL.
+If entry.blog_first_seen_live is already set, skip to Step C.
+Otherwise, issue an HTTP HEAD request to entry.blog_url with:
+  - 10-second timeout
+  - follow up to 3 redirects
+  - User-Agent: Hermes-SOP-Chain/1.0 (no email in UA)
+
+Success criteria: response status is 200, 301, or 302 to a final 200 on 4ucit.com. If success:
+  - Set entry.blog_first_seen_live = ISO timestamp of the check
+  - Append a live-detected line to hermes_email_runtime_log.jsonl
+  - Continue to Step C.
+
+If the HEAD fails (non-2xx, timeout, DNS error), do NOT schedule the campaign. Log the failure attempt to hermes_email_runtime_log.jsonl (with attempt counter), leave entry.status = "draft", and wait for the next loop iteration.
+
+STEP C - Schedule the campaign.
+If entry.status is still "draft" and entry.blog_first_seen_live is set:
+  - Compute scheduled_at = max(entry.target_send, now + 30 minutes). The 30-minute floor prevents a late blog-live detection from shipping the email inside the next few minutes.
+  - PATCH the GHL campaign (entry.campaign_id) from draft to scheduled, with send_at = scheduled_at in UTC.
+  - Set entry.status = "scheduled", entry.scheduled_at = scheduled_at.
+  - Log the scheduling to hermes_email_runtime_log.jsonl.
+
+STEP D - Sent confirmation.
+After scheduled_at passes, poll GHL for campaign send status (at most once per hour). When GHL reports sent:
+  - Set entry.status = "sent", entry.sent_at = ISO timestamp.
+  - Log to hermes_email_runtime_log.jsonl.
+  - This week's entry is done.
+
+====================================================================
+FAILURE AND ALERT CASES
+====================================================================
+
+ALERT CASE 1 - Blog not live by Tuesday 08:00 ET
+If a given week's entry reaches Tuesday 08:00 ET with entry.blog_first_seen_live still null:
+  - Do NOT schedule the campaign.
+  - Set entry.status = "blocked_blog_not_live".
+  - Send an alert to the configured alert channel (slack/email - loaded in Hermes config) naming the week, the blog URL, and the last HEAD-check status.
+  - Human intervention required. After the blog goes live, re-run the current week's loop manually or set entry.status back to "draft" and let the loop pick it up on the next pass.
+
+ALERT CASE 2 - Blog goes dark after live detection
+If entry.status is "scheduled" and a pre-send HEAD check (at scheduled_at minus 15 minutes) returns non-2xx:
+  - PATCH the GHL campaign back to draft (if GHL allows) or cancel + reschedule 24 hours later.
+  - Set entry.status = "blocked_blog_went_dark".
+  - Send an alert.
+  - Human intervention required.
+
+ALERT CASE 3 - GHL API failure during scheduling
+If the PATCH-to-scheduled call fails:
+  - Retry up to 3 times with exponential backoff (1 min, 5 min, 15 min).
+  - On final failure, set entry.status = "blocked_ghl_api".
+  - Send an alert.
+
+ALERT CASE 4 - Campaign draft missing in GHL at runtime
+If, at Step C, GHL returns 404 for entry.campaign_id:
+  - Rebuild the campaign from the manifest row + body file (same payload as Phase 1).
+  - If successful, update entry.campaign_id and proceed with scheduling.
+  - If rebuild fails, set entry.status = "blocked_ghl_rebuild_failed" and alert.
+
+ALL ALERTS include: week number, email_id, blog_url, email_subject, timestamp, and a one-line error description. No stack traces in alerts.
+
+====================================================================
+CONTENT CONSTRAINTS (PRE-SEND LINT)
+====================================================================
+
+Before issuing the GHL PATCH-to-scheduled in Step C, re-read the current body file and confirm:
+
+MUST NOT CONTAIN:
+  - "ICS"
+  - "Institutional Capacity Systems"
+  - "UCIT" (allowed: "Ultimate Consulting IT" in a configured email footer, if Hermes config adds one; never in the body)
+  - "institutional-capacity.com"
+  - Hashtags (the "#" character followed by a word)
+  - Any dollar-figure fee or price (patterns like "$XXK per", "fixed fee", "$X,XXX")
+  - Any specific institution name beyond the generics "a public regional university," "an HBCU I worked with," "an MSI I worked with," "a community college," "a state system"
+
+MAY CONTAIN (these are intentional and not lint violations):
+  - "EO 14283"
+  - "HBCU PARTNERS Act"
+  - "Uniform Guidance," "Title IV," "GLBA," "FSA," "NIST 800-171," "2 CFR 200," "16 CFR 314"
+  - Compliance-cost ranges presented as data points (e.g., "$50K-$300K in remediation costs")
+
+MUST CONTAIN:
+  - The {{first_name|there}} token (exactly this spelling)
+  - The blog_url from the manifest row (as the clickable destination)
+
+If any MUST NOT rule fails: block the schedule for that week, set entry.status = "blocked_content_lint," alert with the matched term.
+
+====================================================================
+STATE FILES THIS JOB OWNS
+====================================================================
+
+Hermes writes the following files in the same folder as this doc:
+
+  hermes_email_chain_state.json   - Per-week state (campaign_id, status, timestamps)
+  hermes_email_setup_log.jsonl    - One line per Phase 1 setup step
+  hermes_email_runtime_log.jsonl  - One line per Phase 2 loop event
+
+These files are the source of truth for whether a given week's email has been chained, scheduled, or sent. On restart or recovery, Hermes reads hermes_email_chain_state.json to resume mid-chain without re-sending.
+
+====================================================================
+IDEMPOTENCY
+====================================================================
+
+Phase 1 is idempotent: if hermes_email_chain_state.json already has an entry with a valid GHL campaign_id, skip the create and keep the existing one. Only create a new GHL campaign when the state file does not already have one.
+
+Phase 2 is idempotent at the step level: each STEP A-D checks entry.status before acting. A loop iteration that finds entry.status = "sent" is a no-op.
+
+====================================================================
+TIMING SUMMARY
+====================================================================
+
+Setup window                   Any time before 2026-11-09 00:00 ET
+Chain-run window               2026-11-09 00:00 ET through 2027-11-02 23:59 ET
+Weekly poll window             Monday 00:00 ET through Tuesday 08:00 ET
+Target weekly send time        Tuesday 09:00 America/New_York
+First send                     Tuesday 2026-11-10 09:00 ET (paired with Week 1 blog)
+Last send                      Tuesday 2027-11-02 09:00 ET (paired with Week 52 blog)

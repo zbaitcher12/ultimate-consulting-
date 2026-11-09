@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Higher education accreditation cycles consume substantial institutional bandwidth. The self-study. The evidence assembly. The site-visit preparation. The follow-up monitoring reports.
+
+Three things the piece names:
+- Student learning assessment standards
+- Financial responsibility standards
+- Compliance standards
+
+Read it:
+https://4ucit.com/insights/documented-operations-as-accreditation-evidence-doubling-the-work
+
+—
+Darryl Nash

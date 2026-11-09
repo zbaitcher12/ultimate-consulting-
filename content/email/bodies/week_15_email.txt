@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your bursar's exception queue is one of the most reliable diagnostics of how the work actually runs in your institution. Walk into any bursar's office and ask to see the queue. The size matters less than the composition. The composition tells you how much of the bursar's work is responding to predictable exceptions — exceptions that repeat every term — because the upstream workflows are not catching them.
+
+Three things the piece names:
+- Cash application.
+- Reconciliation.
+- Refund processing.
+
+Read it:
+https://4ucit.com/insights/the-bursars-exception-queue-what-cash-application-tells-you-about-process-maturity
+
+—
+Darryl Nash

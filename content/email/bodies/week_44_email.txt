@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your CIO operates with dashboards that measure system uptime, ticket volume, security posture, and project status. Each reflects metrics the CIO has been tracking for years. What CIOs do not typically have is a view of how system configurations align with documented operational workflows.
+
+Three things the piece names:
+- Configuration audit pass rate.
+- Change-management adherence.
+- Document-to-system-of-record traceability.
+
+Read it:
+https://4ucit.com/insights/the-cios-configuration-to-process-dashboard-beyond-system-uptime
+
+—
+Darryl Nash

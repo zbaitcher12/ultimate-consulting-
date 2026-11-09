@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Most documentation projects in higher education fail. The failure mode is not always visible immediately. The work produces a finished document. The document looks like an SOP. The failure becomes visible six months later, when nobody is using it, the workflow has drifted further from the documented version, and the next operational crisis exposes the gap.
+
+Three things the piece names:
+- Scope.
+- Sponsor.
+- Sequencing.
+
+Read it:
+https://4ucit.com/insights/why-most-documentation-projects-fail-and-five-decisions-that-determine-whether-yours-does
+
+—
+Darryl Nash

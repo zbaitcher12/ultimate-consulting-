@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Equity gaps in higher education are typically framed as data problems. Your institution looks at outcome data — graduation rates, aid disbursement timing, student service utilization — and sees variance by demographic, by program, by income level. The response is usually a programmatic intervention: a new advising model, a supplemental instruction program, an outreach campaign.
+
+Three things the piece names:
+- What the framing misses.
+- Why process gaps concentrate harm.
+- The strategic implication.
+
+Read it:
+https://4ucit.com/insights/operating-discipline-and-equity-outcomes-why-process-gaps-concentrate-harm
+
+—
+Darryl Nash

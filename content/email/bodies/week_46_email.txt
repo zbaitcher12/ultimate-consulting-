@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Enrollment leaders in higher education track the funnel in standard terms. Inquiry. Application. Acceptance. Deposit. Enrollment. Each stage has a conversion rate. Each stage has a cycle time. The enrollment team optimizes the conversion rates.
+
+Three things the piece names:
+- Application processing.
+- Admission decision routing.
+- Enrollment confirmation.
+
+Read it:
+https://4ucit.com/insights/operating-discipline-and-the-enrollment-funnel-where-cycle-time-lives
+
+—
+Darryl Nash

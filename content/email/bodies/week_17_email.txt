@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Human resources workflows are the operational work your institution defers writing down until the moment it's being defended in court. The deferral has a reason. The workflows feel sensitive. Nobody wants to write down a termination protocol while your institution is functioning normally.
+
+Three things the piece names:
+- Onboarding sequence.
+- Title IX response.
+- Performance documentation.
+
+Read it:
+https://4ucit.com/insights/human-resources-and-the-documentation-gap-nobody-sees-until-termination
+
+—
+Darryl Nash

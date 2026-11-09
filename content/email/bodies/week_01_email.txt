@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The system goes live on schedule. The cutover is clean. The status report turns green. Three weeks in, your aid specialist is still running the old spreadsheet because the new workflow configures around a process that only lived in her head.
+
+Three things the piece names:
+- Two different readinesses. One got budgeted. One didn't.
+- Four questions to ask before the next cutover window closes.
+- The paper is the readiness.
+
+Read it:
+https://4ucit.com/insights/why-your-erp-goes-live-but-your-institution-doesnt
+
+—
+Darryl Nash

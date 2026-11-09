@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your CFO already operates with dashboards that measure cash position, audit posture, and budget variance. Each dashboard reflects metrics the CFO has been tracking for years. What CFOs do not typically have is a view of how their existing metrics are downstream of gaps in the record of how the work runs.
+
+Three things the piece names:
+- Cash-application aging.
+- Audit finding-to-close cycle.
+- Exception-rate trends.
+
+Read it:
+https://4ucit.com/insights/the-cfos-operating-discipline-dashboard-cash-cycle-audit-posture-and-the-lines-that-connect-them
+
+—
+Darryl Nash

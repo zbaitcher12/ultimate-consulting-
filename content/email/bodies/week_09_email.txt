@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Gap analysis is one of the most overused terms and most underutilized tools in higher education. It shows up on project charters, accreditation responses, vendor proposals, and reports. Most of the time it produces a generic document that names obvious gaps in obvious terms and surfaces nothing actionable.
+
+Three things the piece names:
+- Scope.
+- Participants.
+- Output.
+
+Read it:
+https://4ucit.com/insights/the-gap-analysis-that-changes-the-conversation
+
+—
+Darryl Nash

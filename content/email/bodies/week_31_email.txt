@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Pilot documentation work typically succeeds. The scope is narrow. The sponsor is engaged. The participants are committed. The document lands.
+
+Three things the piece names:
+- Function-by-function.
+- Risk-tier-by-risk-tier.
+- Decision-authority-first.
+
+Read it:
+https://4ucit.com/insights/pilot-to-scale-the-institutional-rollout-pattern-that-works
+
+—
+Darryl Nash

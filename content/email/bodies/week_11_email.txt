@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Higher-education institutions invest in process documentation for a specific reason. They need something to show for it. Something that satisfies auditors, anchors training, survives staff turnover, and holds up in the next operating-model conversation with leadership.
+
+Three things the piece names:
+- Captured from the staff who do the work.
+- Has a named owner with refresh authority.
+- Produces audit-ready evidence as a byproduct of execution.
+
+Read it:
+https://4ucit.com/insights/what-documented-operations-actually-produce-the-difference-between-a-binder-and-operational-change
+
+—
+Darryl Nash

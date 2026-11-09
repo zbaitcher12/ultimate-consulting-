@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The document with no internal owner becomes the document nobody updates. The document nobody updates drifts from operational reality within twelve months. The drifted document either keeps getting referenced as if current, producing operational inconsistency, or gets recognized as stale and ignored, producing the documentation gap the work was commissioned to close.
+
+Three things the piece names:
+- Process owner.
+- Governance committee.
+- Embedded ops.
+
+Read it:
+https://4ucit.com/insights/documentation-governance-who-owns-the-procedures-after-the-consultant-leaves
+
+—
+Darryl Nash

@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The end of the calendar year is the right time for documentation portfolio work. The fall term is closing. The spring term has not started. The audit cycle for the fiscal year that ended in June has reached the field-work and reporting phase. The institutional budget cycle is producing next year's allocations.
+
+Three things the piece names:
+- Portfolio inventory.
+- Lightweight refresh.
+- Full-rewrite identification.
+
+Read it:
+https://4ucit.com/insights/year-end-planning-refreshing-the-documentation-portfolio
+
+—
+Darryl Nash

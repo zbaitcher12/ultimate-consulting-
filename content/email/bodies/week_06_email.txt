@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+For most of the last fifteen years, your institution could carry an undocumented operating model and absorb the consequences. Federal regulation was relatively stable. AI deployment was theoretical. Enrollment was uneven but manageable.
+
+Three things the piece names:
+- Federal regulation tightening.
+- AI deployment readiness.
+- The enrollment cliff.
+
+Read it:
+https://4ucit.com/insights/the-operating-model-reckoning-why-now
+
+—
+Darryl Nash

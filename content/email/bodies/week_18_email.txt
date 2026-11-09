@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+IT departments in higher education typically have SOPs. The SOPs are usually the wrong ones. The documented procedures cover routine tasks staff already know how to run. The gaps cover the high-stakes scenarios auditors and federal reviewers now expect to see written down at audit-grade quality.
+
+Three things the piece names:
+- Incident response.
+- Change management.
+- Access provisioning and deprovisioning.
+
+Read it:
+https://4ucit.com/insights/it-documentation-that-auditors-actually-look-for-beyond-system-uptime
+
+—
+Darryl Nash

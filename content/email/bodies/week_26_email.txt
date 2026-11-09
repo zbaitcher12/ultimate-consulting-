@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Twelve weeks of functional deep-dives produces a synthesis that is both predictable and useful. Documentation maturity in higher education is uneven by design, not by accident. The functions with the highest external regulatory pressure operate at the highest documentation maturity. The functions with the lowest external pressure operate at the lowest.
+
+Three things the piece names:
+- The pattern is not a leadership failure.
+- Three consequences visible across Q2.
+- The map that synthesizes the quarter.
+
+Read it:
+https://4ucit.com/insights/q2-reflection-process-maturity-across-the-org-chart
+
+—
+Darryl Nash

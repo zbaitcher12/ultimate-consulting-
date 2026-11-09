@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+ERP modernization in higher education is typically planned as an eighteen-month project. The plan covers the pre-implementation phase, the configuration and testing phase, the cutover, and the immediate post-go-live stabilization. The plan ends somewhere between three and six months after go-live, when your institution declares the project complete and reassigns the project team.
+
+Three things the piece names:
+- A named owner with authority.
+- A documented work plan with quarterly milestones.
+- Dedicated documentation capacity.
+
+Read it:
+https://4ucit.com/insights/the-24-month-post-modernization-horizon
+
+—
+Darryl Nash

@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+College and university presidents have limited bandwidth for operational metrics. The numbers that reach a president's desk are pre-filtered through the cabinet, the chief of staff, and the strategic planning office. The numbers that survive the filtering are the ones that matter enough to require presidential attention.
+
+Three things the piece names:
+- Process coverage.
+- Refresh currency.
+- Governance owner depth.
+
+Read it:
+https://4ucit.com/insights/the-presidents-operating-discipline-dashboard-five-numbers-that-matter
+
+—
+Darryl Nash

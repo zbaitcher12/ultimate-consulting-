@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The hardest SOPs to write in higher education are not the within-department workflows. Those have a clear owner and a clear scope. The hardest SOPs are the cross-functional handoffs — the workflows that require two departments to coordinate, that have ambiguous ownership, and that fail at the handoff point rather than inside either department.
+
+Three things the piece names:
+- Aid-to-bursar.
+- Registrar-to-IT.
+- Advancement-to-finance.
+
+Read it:
+https://4ucit.com/insights/the-handoffs-that-fail-when-two-departments-need-to-talk-to-each-other
+
+—
+Darryl Nash

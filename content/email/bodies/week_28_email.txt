@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The cycle time between the first conversation and the first audit-ready document is the single most important variable in whether documentation work actually lands. Cycle times that stretch past a month consistently produce documents that arrive in a different institutional context than the one in which they were commissioned. The cabinet that funded the work has moved on. The staff who participated in the first conversation have been pulled into the next crisis. The document lands in a context where the urgency has dissipated.
+
+Three things the piece names:
+- The two-week cycle has a different structure.
+- The first conversation is structured.
+- What the two-week cycle produces.
+
+Read it:
+https://4ucit.com/insights/from-discovery-conversation-to-first-audit-ready-deliverable-in-two-weeks
+
+—
+Darryl Nash

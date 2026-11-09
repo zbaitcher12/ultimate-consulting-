@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Federal program reviews aren't primarily designed to catch institutions doing something wrong. They're designed to verify that your institution can show, in documented evidence, that an established workflow was followed.
+
+Three things the piece names:
+- The documentation gap.
+- The consistency gap.
+- The evidence gap.
+
+Read it:
+https://4ucit.com/insights/the-audit-that-didnt-find-fraud-it-found-no-process
+
+—
+Darryl Nash

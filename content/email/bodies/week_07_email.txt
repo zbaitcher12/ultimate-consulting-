@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Undocumented operations have a cost. Most leadership teams know this. Few have ever attempted to quantify it.
+
+Three things the piece names:
+- Turnover-related productivity loss.
+- Audit finding remediation.
+- Cutover surprises.
+
+Read it:
+https://4ucit.com/insights/the-cost-of-undocumented-operations-real-numbers
+
+—
+Darryl Nash

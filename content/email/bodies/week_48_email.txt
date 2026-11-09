@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+The outside-help industry in higher education has a structural incentive problem. Firms earn revenue by being needed. The longer the client needs the firm, the more revenue the firm earns. This produces work structures that, even with the best intentions, tend toward ongoing dependency rather than durable internal capability.
+
+Three things the piece names:
+- Scope structure.
+- Handoff structure.
+- Economic structure.
+
+Read it:
+https://4ucit.com/insights/the-practice-partner-model-what-advisory-looks-like-when-documentation-is-the-front-door
+
+—
+Darryl Nash

@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Gap analysis in higher education has a structural failure mode that recurs regardless of advisor, methodology, or institutional context. The analysis takes six months. The findings arrive in a context where the operating cycle has moved on. Your institution files the findings and continues operating with the gaps the analysis surfaced.
+
+Three things the piece names:
+- Workflow gaps.
+- Authority gaps.
+- Measurement gaps.
+
+Read it:
+https://4ucit.com/insights/gap-analysis-at-engagement-speed-surfacing-what-the-institution-doesnt-know-it-doesnt-know
+
+—
+Darryl Nash

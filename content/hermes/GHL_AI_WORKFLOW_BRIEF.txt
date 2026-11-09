@@ -1,0 +1,231 @@
+GHL AI WORKFLOW BRIEF - SOP-AS-FRONT-DOOR EMAIL CHAIN
+
+HOW TO USE THIS DOC
+This is a brief written for GHL's workflow AI. Paste this into the workflow builder's AI assistant, or use it as a reference while building by hand. It describes one workflow, two supporting data stores, one email template, and the alert channel the workflow writes to.
+
+GOAL
+Build a 52-week scheduled email chain that fires one email per week starting 2026-11-09, where each weekly email is released only after the paired blog post is confirmed live on 4ucit.com. The email body, subject, and send date are pre-built; the workflow's job is to gate the send on the blog URL returning 200 OK.
+
+====================================================================
+STEP 1 - DATA MODEL (BUILD THESE INSIDE GHL BEFORE THE WORKFLOW)
+====================================================================
+
+A. CUSTOM OBJECT
+
+Create a custom object named "sop_front_door_emails" with the following fields:
+
+  week_number              Number, 1 through 52
+  target_send_date         Date (the Tuesday the email should go out)
+  blog_url                 Text, full https URL
+  blog_slug                Text, kebab-case slug
+  email_subject            Text, shown in inbox
+  preview_text             Text, shown as preheader
+  body_text                Long text, the full email body with {{first_name|there}} token
+  status                   Text, one of: draft, live_confirmed, scheduled, sent, blocked_blog_not_live, blocked_content_lint
+  blog_first_seen_live     Date/time, nullable
+  sent_at                  Date/time, nullable
+
+Import 52 records from the file:
+  hermes_email_manifest.csv (in the handoff folder)
+Plus the body_text content from:
+  email_bodies/week_NN_email.txt  (52 files - import each file's contents into the body_text field on its matching week record)
+
+Initial status for all 52 records: "draft."
+
+B. SUBSCRIBER LIST / SMART LIST
+
+Create (or identify) the GHL smart list that should receive this series. Working name: "SOP Front Door Subscribers." This list contains the higher-ed decision-maker audience that Darryl has loaded.
+
+C. EMAIL TEMPLATE
+
+Create an email template named "SOP Front Door - Weekly" with:
+
+  From name         Darryl Nash
+  From email        (the configured UCIT 4ucit.com sending address)
+  Reply-to          (the configured reply-to address)
+  Subject           {{custom_values.workflow_email_subject}}
+  Preview text      {{custom_values.workflow_preview_text}}
+  Body              {{custom_values.workflow_body_text}}
+
+The body field pulls the pre-built body from the custom object record for the current week.
+
+====================================================================
+STEP 2 - WORKFLOW DESIGN
+====================================================================
+
+WORKFLOW NAME: SOP Front Door - Weekly Email Chain
+
+TRIGGER
+Type: Date/Time Schedule
+Cadence: Weekly, every Monday
+Start: 2026-11-09 00:00 America/New_York
+End: 2027-11-02 23:59 America/New_York
+
+ACTIONS (in order)
+
+ACTION 1 - Find this week's record
+Query the sop_front_door_emails custom object for the record where target_send_date equals (today + 1 day) and status equals "draft."
+Expected: exactly one record per Monday run.
+If zero records found: end workflow silently (series week may already be sent, or outside the chain window).
+If multiple records found: send internal notification "Multiple draft records matched for week" with today's date; end workflow.
+
+ACTION 2 - Set workflow custom values from the record
+Set these workflow-scoped custom values:
+  workflow_week_number       from record.week_number
+  workflow_blog_url          from record.blog_url
+  workflow_blog_slug         from record.blog_slug
+  workflow_email_subject     from record.email_subject
+  workflow_preview_text      from record.preview_text
+  workflow_body_text         from record.body_text
+  workflow_record_id         from record.id
+
+ACTION 3 - Blog-live polling loop (up to 8 attempts, 2 hours apart)
+Use a Repeat/Loop action with 8 iterations. Inside the loop:
+  3a. HTTP Request action: HEAD workflow_blog_url, 10-second timeout, follow up to 3 redirects, User-Agent "GHL-SOP-FD/1.0"
+  3b. If-Else branch on response code:
+      - If 200 OR (301/302 with final 200 on 4ucit.com domain):
+          * Update the custom object record: set status = "live_confirmed," set blog_first_seen_live = now
+          * Exit the loop (break)
+      - Else:
+          * Log the attempt (iteration number and response code)
+          * Wait 2 hours
+          * Continue to next iteration
+
+ACTION 4 - Check final loop state
+If-Else branch on the record's status:
+  - If status = "live_confirmed": continue to Action 5
+  - Else (still "draft" after 8 attempts, i.e. ~16 hours of polling from Monday 00:00 through Monday 16:00 ET):
+      * Update the record: set status = "blocked_blog_not_live"
+      * Internal Notification action: send to Darryl
+        Title: "SOP Front Door email blocked - blog not live"
+        Body: "Week " + workflow_week_number + " blog at " + workflow_blog_url + " did not return 200 OK after 8 attempts. Email held. Human intervention required."
+      * End workflow
+
+ACTION 5 - Wait until target send time
+Wait Until action: wait until Tuesday 09:00 America/New_York (target_send_date from the record at 09:00 local time).
+If the wait resolves earlier than Tuesday 09:00, still hold until exactly that time.
+
+ACTION 6 - Content lint (pre-send guardrail)
+Run an If-Else that inspects workflow_body_text for any of the following banned terms (case-insensitive substring match):
+  - "ICS"
+  - "Institutional Capacity Systems"
+  - "institutional-capacity.com"
+  - Any "#" character immediately followed by a word character (hashtags)
+  - "UCIT" or "Ultimate Consulting" (gated - not in body)
+Also inspect for any dollar-figure fee pattern ($##K per, fixed fee, "$X,XXX").
+
+If any banned term found:
+  * Update the record: set status = "blocked_content_lint"
+  * Internal Notification to Darryl with the matched term and week number
+  * End workflow
+
+If clean: continue to Action 7.
+
+ACTION 7 - Pre-send blog recheck
+Run one more HTTP HEAD on workflow_blog_url. If non-2xx:
+  * Update the record: set status = "blocked_blog_went_dark"
+  * Internal Notification to Darryl ("Week N blog went dark between live-detection and send")
+  * End workflow
+
+ACTION 8 - Send the email
+Send Email action using the "SOP Front Door - Weekly" template.
+Audience: the "SOP Front Door Subscribers" smart list.
+Merge fields resolve from workflow custom values set in Action 2.
+Tracking: opens on, clicks on.
+
+ACTION 9 - Update record state
+Update the custom object record: set status = "sent," set sent_at = now.
+
+END OF WORKFLOW
+
+====================================================================
+STEP 3 - WORKFLOW BEHAVIOR SUMMARY
+====================================================================
+
+Each Monday at 00:00 America/New_York during the chain window:
+  1. Workflow finds the week's email record (single row match).
+  2. Polls the paired blog URL every 2 hours for up to 16 hours.
+  3. If the blog goes live anywhere in that window, workflow waits until Tuesday 09:00 ET, runs a content lint, rechecks blog, and sends the email.
+  4. If the blog is never live in that window, workflow blocks the send and alerts Darryl.
+  5. State on the custom object record tracks exactly what happened for each week.
+
+Each weekly run is independent. 52 weekly runs across the series window. A single workflow definition serves all of them.
+
+====================================================================
+STEP 4 - ALERTS AND MONITORING
+====================================================================
+
+All internal notifications in this workflow route to Darryl's GHL user account inbox. Configure the Internal Notification action to:
+  Recipient: Darryl Nash (GHL user)
+  Delivery: In-app AND email to his primary address
+  Severity tag: "SOP-FD chain"
+
+The GHL workflow history will show every weekly run, every attempt in the polling loop, and every alert. Darryl can review the history from the Automations tab to audit any week's send decision.
+
+====================================================================
+STEP 5 - MANUAL OVERRIDE OPERATIONS (NOT PART OF THE WORKFLOW)
+====================================================================
+
+If a week's send gets blocked and the human-side issue is resolved:
+  1. Open the sop_front_door_emails custom object.
+  2. Find the week's record.
+  3. Set status back to "draft."
+  4. Trigger the workflow manually (Automations tab -> Run Now) for that week's trigger date.
+
+If the entire chain needs to be paused mid-series:
+  1. Set the parent workflow status to "Draft" or "Paused."
+  2. In-flight weekly runs that are already past Action 3 (polling) will continue to completion; no new weekly trigger will fire until the workflow is reactivated.
+
+====================================================================
+STEP 6 - PRE-FLIGHT CHECKLIST
+====================================================================
+
+Before activating the workflow on 2026-11-09:
+
+  [ ] Custom object "sop_front_door_emails" created with 52 records, all status "draft"
+  [ ] Each record has non-empty email_subject, preview_text, body_text, and blog_url
+  [ ] Email template "SOP Front Door - Weekly" created and references workflow custom values correctly
+  [ ] Smart list "SOP Front Door Subscribers" has the intended audience and is populated
+  [ ] From email is authenticated (SPF, DKIM, DMARC) on the 4ucit.com sending domain
+  [ ] Reply-to address is live and monitored
+  [ ] Test send from the template to Darryl's own inbox renders correctly (plain text and HTML)
+  [ ] One test run of the workflow on a sample record with a known-live URL confirms the polling + send + state-update loop works end-to-end
+  [ ] Workflow trigger is activated and shows next-run of Monday 2026-11-09 00:00 ET
+
+====================================================================
+CONTENT CONSTRAINTS (SAME RULES ACROSS THE CHAIN)
+====================================================================
+
+Each email body MUST contain:
+  - The {{first_name|there}} personalization token (preserved verbatim)
+  - A single blog URL on 4ucit.com
+
+Each email body MUST NOT contain:
+  - ICS, Institutional Capacity Systems, institutional-capacity.com, UCIT, Ultimate Consulting
+  - Hashtags
+  - Dollar-figure fees or prices
+  - Specific institution names beyond: "a public regional university," "an HBCU I worked with," "an MSI I worked with," "a community college," "a state system"
+
+Compliance references that are PERMITTED and intentional:
+  - EO 14283, HBCU PARTNERS Act, Uniform Guidance, Title IV, GLBA, FSA, NIST 800-171, 2 CFR 200, 16 CFR 314
+  - Compliance-cost ranges presented as data points (e.g., "$50K to $300K in remediation costs")
+
+====================================================================
+TIMING REFERENCE
+====================================================================
+
+First weekly trigger          Monday 2026-11-09 00:00 America/New_York
+First target email send       Tuesday 2026-11-10 09:00 America/New_York
+Last weekly trigger           Monday 2027-11-01 00:00 America/New_York
+Last target email send        Tuesday 2027-11-02 09:00 America/New_York
+Total weekly runs             52
+Polling window per week       Monday 00:00 ET through Monday ~16:00 ET (8 attempts x 2 hours)
+Send window per week          Tuesday 09:00 ET (fixed after live-confirmation)
+
+====================================================================
+WHAT HERMES NO LONGER NEEDS TO DO
+====================================================================
+
+With this workflow in place, Hermes does NOT run the email chain via the GHL API. The equivalent instructions in HERMES_EMAIL_CHAIN_INSTRUCTIONS.txt describe an API-driven alternative. Pick one path; do not run both at once.
+
+Hermes still runs the LinkedIn / Buffer chain per HERMES_LINKEDIN_BUFFER_INSTRUCTIONS.txt. The LinkedIn chain is independent of the email chain and is not affected by this GHL workflow.

@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Documentation does not refresh itself. The workflow the document describes keeps evolving — staff change, systems update, regulations shift, exceptions accumulate — and the document that was accurate at publication becomes inaccurate over time. The institutions that treat documents as one-time outputs produce documents that decay. The institutions that treat them as renewable assets produce documents that compound.
+
+Three things the piece names:
+- Trigger events that start a refresh.
+- The distinction between lightweight refresh and full rewrite.
+- Version control and change-log discipline.
+
+Read it:
+https://4ucit.com/insights/the-annual-refresh-cycle-making-documentation-a-renewable-asset
+
+—
+Darryl Nash

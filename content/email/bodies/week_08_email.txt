@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your cabinet is full of people who carry decision authority. The org chart says so. Position descriptions say so. The RACI from the last reorganization says so.
+
+Three things the piece names:
+- Silent ownership.
+- Bottleneck ownership.
+- Ghost ownership.
+
+Read it:
+https://4ucit.com/insights/the-60-second-decision-test
+
+—
+Darryl Nash

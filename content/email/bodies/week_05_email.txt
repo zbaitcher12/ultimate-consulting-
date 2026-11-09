@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your institution carries undocumented workflows. You know it. What most institutions don't carry is a taxonomy for what the undocumented work actually consists of.
+
+Three things the piece names:
+- Tribal knowledge.
+- Configured-around exceptions.
+- Ghost approvals.
+
+Read it:
+https://4ucit.com/insights/the-three-categories-of-undocumented-process-every-institution-has
+
+—
+Darryl Nash

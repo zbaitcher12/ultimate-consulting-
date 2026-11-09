@@ -1,0 +1,24 @@
+{
+  "note": "Example Buffer v1 API payload for week_01_mon_announce. Endpoint: POST https://api.bufferapp.com/1/updates/create.json",
+  "headers": {
+    "Authorization": "Bearer YOUR_BUFFER_ACCESS_TOKEN",
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  "body_fields": {
+    "profile_ids[]": "BUFFER_LINKEDIN_PROFILE_ID_HERE",
+    "text": "<the post body extracted from linkedin_pilot/week_01_mon_announce.md \u2014 everything after the first --- separator, stripped>",
+    "media[picture]": "<URL of publicly hosted image OR file upload>",
+    "media[thumbnail]": "<same as media[picture]>",
+    "media[link]": "",
+    "scheduled_at": "<Unix timestamp for TBD_start+0d at 08:00 America/New_York>",
+    "shorten": "false",
+    "now": "false",
+    "top": "false"
+  },
+  "notes": [
+    "For image attachment via Buffer API, the image must be publicly accessible via URL. If Hermes runs in an environment where linkedin_images/ files are not URL-accessible, upload them to a CDN or S3 bucket first and populate media[picture] with the resulting URL.",
+    "scheduled_at is a Unix epoch (seconds). Compute from publish_date + publish_time_local + publish_timezone.",
+    "profile_ids[] is Buffer's internal ID for the LinkedIn profile \u2014 retrieve once via GET /profiles.json and cache.",
+    "Buffer will handle the actual LinkedIn API call at scheduled_at time."
+  ]
+}

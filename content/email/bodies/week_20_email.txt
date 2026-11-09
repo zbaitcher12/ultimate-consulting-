@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Procurement is the function where SOP gaps compound. It sits between operations and finance. Approval routing crosses departmental lines. Decision authority often lives in committees rather than individuals.
+
+Three things the piece names:
+- RFP scoping.
+- RFP evaluation.
+- Contract negotiation.
+
+Read it:
+https://4ucit.com/insights/procurement-without-the-bottleneck-from-rfp-to-contract-in-60-days
+
+—
+Darryl Nash

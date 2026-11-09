@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Higher education institutions do not operate under Sarbanes-Oxley. They operate under federal program requirements, state higher-education regulations, and audit standards from independent accountants and accreditors that have absorbed many SOX-style expectations without using the SOX language.
+
+Three things the piece names:
+- The controller's office participates in operational documentation governance
+- The operational documents include the internal-control language
+- The internal-control framework points to the operational documents
+
+Read it:
+https://4ucit.com/insights/documented-workflows-as-internal-controls-where-process-discipline-meets-fraud-prevention
+
+—
+Darryl Nash

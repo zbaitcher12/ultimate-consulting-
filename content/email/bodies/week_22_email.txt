@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Your institutional research function runs on one or two staff members carrying the entire reporting load. IPEDS submissions. Accreditation evidence. Board dashboards. Strategic-plan metrics. The long tail of ad hoc requests from cabinet members who need a number for a meeting on Thursday.
+
+Three things the piece names:
+- Data definitions.
+- Refresh cadence.
+- Dashboard governance.
+
+Read it:
+https://4ucit.com/insights/data-governance-that-survives-the-person-who-owns-it
+
+—
+Darryl Nash

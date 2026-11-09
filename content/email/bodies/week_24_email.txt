@@ -1,0 +1,14 @@
+Hi {{first_name|there}},
+
+Marketing departments in higher education love campaigns and resist documentation. The combination produces brand consistency that depends entirely on the institutional memory of the staff in the seats. When the marketing team turns over — and higher-ed marketing turnover is elevated relative to other institutional functions — the brand consistency goes with the team.
+
+Three things the piece names:
+- Campaign brief.
+- Approval chain.
+- Asset library governance.
+
+Read it:
+https://4ucit.com/insights/brand-consistency-beyond-the-cmo-tenure-campaign-discipline-as-institutional-asset
+
+—
+Darryl Nash
